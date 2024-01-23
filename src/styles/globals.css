@@ -1,33 +1,146 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.h1_1 {
+    color: rgb(92, 95, 255);
+    font-size: 40px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.menu_button {
+    background-color: #4CAF50;
+    color: white;
+    /* outline: 2px solid black; */
+    border: 2px solid black;
+    padding: 10px 20px;
+    text-align: center;
+    line-height: 40px; /* heightとそろえる */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block; /* 改行 */
+
+    /* ボタンの横幅と縦幅を指定 */
+    width: 220px;
+    height: 40px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+.select_button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex; /* Flexbox を有効にする */
+    align-items: center; /* 垂直方向に中央揃え */
+    justify-content: center; /* 水平方向に中央揃え */
+    width: 120px;
+    height: 40px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.yes_button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex; /* Flexbox を有効にする */
+    align-items: center; /* 垂直方向に中央揃え */
+    justify-content: center; /* 水平方向に中央揃え */
+    width: 120px;
+    height: 40px;
 }
+.no_button {
+    background-color: #f24343;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex; /* Flexbox を有効にする */
+    align-items: center; /* 垂直方向に中央揃え */
+    justify-content: center; /* 水平方向に中央揃え */
+    width: 120px;
+    height: 40px;
+}
+
+
+.image_gallery {
+    background-color: #ffd9ec;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input_text {
+    background-color: #fdffdc;
+    color: rgb(0, 114, 74);
+    border: 2px solid rgb(0, 114, 74);
+    padding: 10px 20px;
+    text-align: center;
+    line-height: 40px; /* heightとそろえる */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    display: flex; /* Flexbox を有効にする */
+    align-items: center; /* 垂直方向に中央揃え */
+    justify-content: center; /* 水平方向に中央揃え */
+    width: 540px;
+    height: 40px;
+}
+
+.confirmation_modal {
+    background-color: #fdffdc;
+    color: rgb(0, 114, 74);
+    border: 2px solid rgb(0, 114, 74);
+    padding: 10px 20px;
+    text-align: center;
+    line-height: 40px; /* heightとそろえる */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    border-radius: 5px;
+    display: flex; /* Flexbox を有効にする */
+    align-items: center; /* 垂直方向に中央揃え */
+    justify-content: center; /* 水平方向に中央揃え */
+}
+
+
+  
+
+/* 
+background-color: #4CAF50;: ボタンの背景色を緑色（#4CAF50）に設定します。
+color: white;: ボタンのテキストの色を白色に設定します。
+border: 2px solid black;: ボタンの境界線（ボーダー）を2pxの太さで黒色に設定します。このプロパティは、境界線を指定します。
+padding: 10px 20px;: ボタンの内側の余白を上下に10px、左右に20px設定します。これにより、ボタンの内容が境界線から離れ、見栄えが良くなります。
+text-align: center;: ボタン内のテキストを中央寄せにします。
+text-decoration: none;: テキストのデコレーション（アンダーラインなど）をなしに設定します。通常、ボタンではデコレーションをなくすことが一般的です。
+display: inline-block;: ボタンを行内ブロック要素として表示します。行内ブロック要素は、横に並ぶが高さと幅の指定が可能な要素です。
+font-size: 16px;: テキストのフォントサイズを16pxに設定します。
+margin: 4px 2px;: ボタンの外側の余白を上下に4px、左右に2px設定します。ボタン同士の間隔を調整するために使用されます。
+cursor: pointer;: ボタン上でマウスがポインターに変わるようにします。通常、クリッカブルな要素に対して設定されます。
+border-radius: 5px;: ボーダーの角を5pxの半径で丸めます。これにより、ボタンの角が丸くなります。
+display: block;: このプロパティは、不要なようです。前述の display: inline-block; が既に指定されており、このプロパティはその上書きになります。削除しても問題ないでしょう。 
+*/
