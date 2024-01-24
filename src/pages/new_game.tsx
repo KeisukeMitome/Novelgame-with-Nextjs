@@ -14,8 +14,9 @@ export default function NewGame() {
   const handleConfirmSubmit = () => {
     // ここでsubmitするための処理を追加
     console.log(`名前: ${name} で送信されました`);
-
   };
+
+
 
   return (
     <main>
