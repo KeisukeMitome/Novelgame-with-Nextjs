@@ -3,6 +3,8 @@
     font-size: 40px;
 }
 
+
+
 .menu_button {
     background-color: #4CAF50;
     color: white;
@@ -10,18 +12,23 @@
     border: 2px solid black;
     padding: 10px 20px;
     text-align: center;
-    line-height: 40px; /* heightとそろえる */
+    line-height: 40px;
+    /* heightとそろえる */
     text-decoration: none;
     display: inline-block;
     font-size: 24px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    display: block; /* 改行 */
-    
-    display: flex; /* Flexbox を有効にする */
-    align-items: center; /* 垂直方向に中央揃え */
-    justify-content: center; /* 水平方向に中央揃え */
+    display: block;
+    /* 改行 */
+
+    display: flex;
+    /* Flexbox を有効にする */
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    justify-content: center;
+    /* 水平方向に中央揃え */
 
     /* ボタンの横幅と縦幅を指定 */
     width: 270px;
@@ -40,9 +47,12 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    display: flex; /* Flexbox を有効にする */
-    align-items: center; /* 垂直方向に中央揃え */
-    justify-content: center; /* 水平方向に中央揃え */
+    display: flex;
+    /* Flexbox を有効にする */
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    justify-content: center;
+    /* 水平方向に中央揃え */
     width: 120px;
     height: 40px;
 }
@@ -58,12 +68,16 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    display: flex; /* Flexbox を有効にする */
-    align-items: center; /* 垂直方向に中央揃え */
-    justify-content: center; /* 水平方向に中央揃え */
+    display: flex;
+    /* Flexbox を有効にする */
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    justify-content: center;
+    /* 水平方向に中央揃え */
     width: 120px;
     height: 40px;
 }
+
 .no_button {
     background-color: #f24343;
     color: white;
@@ -75,9 +89,12 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    display: flex; /* Flexbox を有効にする */
-    align-items: center; /* 垂直方向に中央揃え */
-    justify-content: center; /* 水平方向に中央揃え */
+    display: flex;
+    /* Flexbox を有効にする */
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    justify-content: center;
+    /* 水平方向に中央揃え */
     width: 120px;
     height: 40px;
 }
@@ -95,21 +112,93 @@
     border-radius: 5px;
 }
 
+
+
+
+
+.text_body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 100vh;
+    position: relative;
+}
+
+.text{
+
+    background-color: #edffed;
+    color: rgb(59, 59, 59);
+    /* outline: 2px solid black; */
+    border: 6px solid rgb(18, 138, 96);
+    padding: 10px 20px;
+    text-align: center;
+    line-height: 40px;
+    /* heightとそろえる */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+    display: block;
+    /* 改行 */
+
+    display: flex;
+    /* Flexbox を有効にする */
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    justify-content: center;
+    /* 水平方向に中央揃え */
+
+    /* ボタンの横幅と縦幅を指定 */
+    width: 100%;
+    height: 100%;
+
+}
+
+#imageContainer {
+    position: relative;
+}
+
+#imageContainer .image_back {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#textOverlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
+    color: rgb(176, 255, 214);
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+}
+
+
+
+
 .input_text {
     background-color: #fdffdc;
     color: rgb(0, 114, 74);
     border: 2px solid rgb(0, 114, 74);
     padding: 10px 20px;
     text-align: center;
-    line-height: 40px; /* heightとそろえる */
+    line-height: 40px;
+    /* heightとそろえる */
     text-decoration: none;
     display: inline-block;
     font-size: 24px;
     margin: 4px 2px;
     border-radius: 5px;
-    display: flex; /* Flexbox を有効にする */
-    align-items: center; /* 垂直方向に中央揃え */
-    justify-content: center; /* 水平方向に中央揃え */
+    display: flex;
+    /* Flexbox を有効にする */
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    justify-content: center;
+    /* 水平方向に中央揃え */
     width: 540px;
     height: 40px;
 }
@@ -120,20 +209,24 @@
     border: 2px solid rgb(0, 114, 74);
     padding: 10px 20px;
     text-align: center;
-    line-height: 40px; /* heightとそろえる */
+    line-height: 40px;
+    /* heightとそろえる */
     text-decoration: none;
     display: inline-block;
     font-size: 24px;
     margin: 4px 2px;
     border-radius: 5px;
-    display: flex; /* Flexbox を有効にする */
-    align-items: center; /* 垂直方向に中央揃え */
-    justify-content: center; /* 水平方向に中央揃え */
+    display: flex;
+    /* Flexbox を有効にする */
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    justify-content: center;
+    /* 水平方向に中央揃え */
     display: inline-block;
 }
 
 
-  
+
 
 /* 
 background-color: #4CAF50;: ボタンの背景色を緑色（#4CAF50）に設定します。

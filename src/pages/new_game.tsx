@@ -1,8 +1,8 @@
+import React from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
 
-
-export default function NewGame() {
+const NewGame: React.FC = () => {
   const [name, setName] = useState('');
   const [showConfirmation, setShowConfirmation] = useState(false);
 
@@ -56,3 +56,4 @@ export default function NewGame() {
   );
 }
 
+export default NewGame;
