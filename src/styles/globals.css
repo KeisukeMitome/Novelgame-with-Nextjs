@@ -117,18 +117,29 @@
 
 /* 表示範囲 */
 .overlay-base {
-    position: absolute; /* 絶対位置指定 */
-    top: 50%; /* 上端を画面の中央に配置 */
-    left: 50%; /* 左端を画面の中央に配置 */
-    transform: translate(-50%, -50%); /* 中央揃え */
-    width: 100vw; /* 画像の最大幅を100%に制限 */
-    height: 100vh; /* 画像の最大高さを100%に制限 */
+    position: absolute;
+    /* 絶対位置指定 */
+    top: 50%;
+    /* 上端を画面の中央に配置 */
+    left: 50%;
+    /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%);
+    /* 中央揃え */
+    width: 100vw;
+    /* 画像の最大幅を100%に制限 */
+    height: 100vh;
+    /* 画像の最大高さを100%に制限 */
     overflow: hidden;
     background-color: #f24343;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* テキストを画面下部に配置 */
 }
 
 /* 背景を表示 class */
-.image_back_class {
+/* .image_back_class {
     margin: 0;
     padding: 0;
     background-image: url('/back/class_day.jpg');
@@ -137,11 +148,40 @@
     background-attachment: fixed;
     width: 100vw;
     height: 100vh;
-    /* 画面の高さを100%に設定 */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* テキストを画面下部に配置 */
+} */
+
+/* 背景を表示 */
+.image_back {
+    position: absolute;
+    /* 絶対位置指定 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 56.25vw;
+    z-index: 1;
+    /* 背景より前面に表示 */
+}
+
+@media screen and (max-aspect-ratio: 16/9) {
+    .image_back {
+        /* ウィンドウが縦長の場合に適用するスタイルをここに記述 */
+        position: absolute;
+        /* 絶対位置指定 */
+        top: 50%; /* 上端を画面の中央に配置 */
+        left: 50%; /* 左端を画面の中央に配置 */
+        transform: translate(-50%, -50%); /* 中央揃え */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        width: 177.78vh;
+        height: 100vh;
+        z-index: 1;
+        /* 背景より前面に表示 */
+    }
 }
 
 /* キャラ表示 */
@@ -166,7 +206,8 @@
     color: rgb(125, 51, 51);
     /* テキストの色を設定 */
     padding: 20px;
-    z-index: 2; /* キャラクターより前面に表示 */
+    z-index: 2;
+    /* キャラクターより前面に表示 */
 }
 
 /* セリフ（左寄せ） */
