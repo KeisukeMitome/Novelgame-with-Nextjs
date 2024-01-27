@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image, { StaticImageData } from "next/image"
 import emp from '/public/emp.png';
-import chara1_normal from '/public/chara1-normal.png';
-import chara1_evilsmile from '/public/chara1-evilsmile.png';
-import chara1_smile from '/public/chara1-smile.png';
+import chara1_normal from '/public/chara/chara1-normal.png';
+import chara1_evilsmile from '/public/chara/chara1-evilsmile.png';
+import chara1_smile from '/public/chara/chara1-smile.png';
 
 
 
@@ -47,7 +47,7 @@ const GamePage: React.FC = () => {
 
 
       <div className='overlay-base'>
-        <div className='image_back'>
+        <div className='image_back_class'>
 
           <Image className="overlay-image" src={charaToShow} alt="Overlay Image" />
 
