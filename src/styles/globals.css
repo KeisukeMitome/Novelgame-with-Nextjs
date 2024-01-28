@@ -195,6 +195,61 @@
     z-index: 1; /* 背景より前面に表示 */
 }
 
+/* キャラ表示 2人の場合 左 */
+.overlay-image-L {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 35%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+/* キャラ表示 2人の場合 右 */
+.overlay-image-R {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 65%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+
+
+/* キャラ表示 3人の場合 左 */
+.overlay-image-3L {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 30%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+/* キャラ表示 3人の場合 中 */
+.overlay-image-3M {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 50%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+/* キャラ表示 3人の場合 右 */
+.overlay-image-3R {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 70%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+
+
+
 
 
 /* 画面中央に配置 */
