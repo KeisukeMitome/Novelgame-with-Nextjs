@@ -49,20 +49,41 @@ class Manager {
         this.Dialogues_commom_1c = [
             // 選択肢1の分岐先
             [
-                new Dialogue("「4時間14分勉強したよ」", name, [chara1_normal], 0, class_day)
+                new Dialogue("「4時間14分勉強したよ」", name, [chara1_normal], 0, class_day),
+                new Dialogue("「え、そんなに勉強したの！？」", "アナ", [chara1_normal], 0, class_day),
+                new Dialogue("「このままじゃ置いてかれちゃう、、、」", "アナ", [chara1_normal], 0, class_day),
+                new Dialogue("「ねえ、この後わからないとこあったら聞いてもいい？」", "アナ", [chara1_normal], 0, class_day),
+                new Dialogue("「おう、お安いご用さ！」", name, [chara1_normal], 0, class_day),
             ],
             // 選択肢2の分岐先
             [
-                new Dialogue("「33時間7分！！」", "アナ", [chara1_normal], 0, class_day)
+                new Dialogue("「33時間7分！！」", name, [chara1_normal], 0, class_day),
+                new Dialogue("「....？？？」", "アナ", [chara1_smile], 0, class_day),
+                new Dialogue("「.........。」", name, [chara1_smile], 0, class_day),
+                new Dialogue("「ちょっと何言ってるかわからない」", "アナ", [chara1_smile], 0, class_day),
+                new Dialogue("「ほんとは？」", "アナ", [chara1_evilsmile], 0, class_day),
+                new Dialogue("「0時間です...」", name, [chara1_evilsmile], 0, class_day),
+                new Dialogue("「一緒に勉強しよっか」", "アナ", [chara1_smile], 0, class_day),
+                new Dialogue("「はい、、お願いします、、、」", name, [chara1_normal], 0, class_day)
             ],
             // 選択肢3の分岐先
             [
-                new Dialogue("「趣味に没頭してて、勉強してないな、、」", "アナ", [chara1_normal], 0, class_day)
+                new Dialogue("「趣味に没頭してて、勉強してないな、、」", name, [chara1_normal], 0, class_day),
+                new Dialogue("「"+name+"は音楽のミックスにはまってるんだっけ？」", "アナ", [chara1_normal], 0, class_day),
+                new Dialogue("「趣味に没頭するのはいいことだと思うけど、そろそろ勉強しはじめた方がいいんじゃない？」", "アナ", [chara1_normal], 0, class_day),
+                new Dialogue("「そうだな。ちょうど1週間前だしちょうどいい機会か。」", name, [chara1_normal], 0, class_day),
+                new Dialogue("「せっかくだし一緒に勉強しないか？」", name, [chara1_normal], 0, class_day),
+                new Dialogue("「うん！もちろんいいよ！」", "アナ", [chara1_smile], 0, class_day),
+                new Dialogue("「私のスパルタ授業に耐えられるかな？？」", "アナ", [chara1_evilsmile], 0, class_day),
+                new Dialogue("「ス、スパルタは勘弁してくれ、、、」", "アナ", [chara1_evilsmile], 0, class_day),
+                new Dialogue("「冗談！」", "アナ", [chara1_smile], 0, class_day)
             ],
         ];
 
         this.Dialogues_commom_2 = [
-            new Dialogue("共通ルート2", "", [chara1_smile], 0, class_day)
+            new Dialogue("かくしておれはアナと一緒に勉強することになった。", "", [chara1_smile], 0, class_day),
+            new Dialogue("共通ルート22", "", [chara1_evilsmile], 0, class_day),
+            new Dialogue("共通ルート222", "", [chara1_evilsmile], 0, class_day)
         ];
 
     }
@@ -114,6 +135,16 @@ class Manager {
         return this.Dialogues[this.level].getText();
     }
 
+    // 名前のgetter
+    getName(): string {
+        return this.Dialogues[this.level].getWho();
+    }
+    // 名前の有無
+    isName(): boolean {
+        if(this.Dialogues[this.level].getWho() == "") return false;
+        else return true;
+    }
+
     // charactersのgetter
     getCharacters(): StaticImageData[] {
         return this.Dialogues[this.level].getCharacters();
@@ -122,6 +153,12 @@ class Manager {
     // backのgetter
     getBack(): StaticImageData {
         return this.Dialogues[this.level].getBack();
+    }
+
+    // 選択肢のgetter()
+    getSelections(): string[]{
+        if(this.levelPlus[0] == 0) return this.Selection_commom_1;
+        else return [""];
     }
 
 }

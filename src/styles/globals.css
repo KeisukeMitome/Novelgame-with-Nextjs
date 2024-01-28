@@ -33,6 +33,9 @@
     width: 270px;
     height: 40px;
 }
+.menu_button:hover {
+    background-color: #51eec7;
+}
 
 
 .select_button {
@@ -55,6 +58,9 @@
     width: 120px;
     height: 40px;
 }
+.select_button:hover {
+    background-color: #51eec7;
+}
 
 .yes_button {
     background-color: #4CAF50;
@@ -76,6 +82,9 @@
     width: 120px;
     height: 40px;
 }
+.yes_button:hover {
+    background-color: #51eec7;
+}
 
 .no_button {
     background-color: #f24343;
@@ -96,6 +105,9 @@
     /* 水平方向に中央揃え */
     width: 120px;
     height: 40px;
+}
+.no_button:hover {
+    background-color: #ff8181;
 }
 
 
@@ -251,6 +263,23 @@
 
 
 
+/* セリフの名札 */
+.main-text-name {
+    background-color: rgb(0, 85, 61);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5vw;
+    margin: -3.9vh 8.9vw;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+
+    /* ボタンの横幅と縦幅を指定 */
+    max-width: 16vw;
+    height: 2.3vw;
+}
 
 /* 画面中央に配置 */
 .center-text {
@@ -393,7 +422,10 @@
     margin: 10px; /* 選択肢の間に余白を設定できます */
     display: inline-block; /* 選択肢が横に並ぶようにします */
 }
-
+/* 選択肢（カーソル合わせたとき） */
+.choice-container:hover {
+    background-color: rgba(232, 255, 252, 0.9);
+}
 
 
 /* 

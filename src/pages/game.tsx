@@ -20,13 +20,18 @@ const GamePage: React.FC = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showSelection, setShowSelection] = useState(false); // 選択肢表示・非表示
   const [showText, setShowText] = useState(true); // テキスト表示・非表示
+  const [showName, setShowName] = useState(true); // 名前表示・非表示
 
   const [choiceInd, setChoiceInd] = useState(-1); // 選択されたインデックス
 
-  const [myManager, setMyManager] = useState(new Manager(String(name)));
+  const [myManager, setMyManager] = useState(new Manager(String(name))); // 管理するクラス
+
   const [textToShow, setTextToShow] = useState("Welcome to the game!");
+  const [nameShow, setNameShow] = useState("");
   const [charaToShow, setCharaToShow] = useState([emp]);
   const [backToShow, setBackToShow] = useState(emp);
+  const [selectShow, setSelectShow] = useState([""]);
+
 
   const handleConfirmationButtonClick = () => {
     // ここで確認ウィンドウを表示するための処理を追加
@@ -35,18 +40,17 @@ const GamePage: React.FC = () => {
 
 
   const textClick = () => {
-    // setTextToShow(myManager.getText());
-    // setCharaToShow(myManager.getCharacters());
-    // setBackToShow(myManager.getBack());
-
     setTextToShow(myManager.getText());
+    setNameShow(myManager.getName());
     setCharaToShow(myManager.getCharacters());
     setBackToShow(myManager.getBack());
+    setSelectShow(myManager.getSelections());
 
     // テキストがクリックされたかどうか
     myManager.clicked();
     // 選択フェーズが来たときに選択肢を表示する
     setShowSelection(myManager.isSelect());
+    setShowName(myManager.isName());
   };
 
   // choiceInd の値が変更されたときに実行される関数
@@ -75,19 +79,23 @@ const GamePage: React.FC = () => {
 
 
         {showSelection && (
-          <Selectcom texts={["選択肢0", "選択肢1", "選択肢3----------------------"]} setChoiceInd={setChoiceInd} />
+          <Selectcom texts={myManager.getSelections()} setChoiceInd={setChoiceInd} />
         )}
+
 
         <Image className="image_back" src={myManager.getBack()} alt="back Image" />
         <Characom charas={myManager.getCharacters()} />
 
-
+        {showName && (
+          <p className='main-text-name'>{myManager.getName()}</p>
+        )}
+        
 
         <div className="center-text">
 
           {showText && (
             <p onClick={textClick} className='main-text'>
-              <Textcom tex={myManager.getText()} />
+              {myManager.getText()}
             </p>
           )}
 
