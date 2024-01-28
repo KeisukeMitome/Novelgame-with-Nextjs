@@ -21,42 +21,48 @@ import schoolentrance_day from '/public/back/schoolentrance_day.jpg';
 
 
 class Manager {
-    private level: number; // 進行度（必要ないかも）
+    private level: number; // 進行度
+    private levelPlus: number[]; // [進行度（選択肢毎）, フラッグ]
     private Dialogues: Dialogue[]; // テキストやキャラなどの情報
+    private Dialogues_commom_1c: Dialogue[][]; // 共通ルート1回目の選択肢1分岐先
+    private Dialogues_commom_2: Dialogue[]; // 共通ルート2（共通ルート1回目の選択後）
 
-    constructor(level: number, name: string) {
-        this.level = level;
+    private Selection_commom_1: string[]; // 共通ルート1回目の選択肢
+
+    constructor(name: string) {
+        this.level = 0;
+        this.levelPlus = [0, 1]; // 分岐後はフラッグが1となる。フラッグを0にしてから++
         // セリフ、喋るキャラ、キャラ[]、キャラの指数、背景、ルート
         this.Dialogues = [
-            new Dialogue("「もう朝か。」", name, [emp], 0, myroom_day, 0),
-            new Dialogue("おれは虚ろな視界で時計を見る。", "", [emp], 0, myroom_day, 0), 
-            new Dialogue("「げっ、もうこんな時間！？」", name, [emp], 0, myroom_day, 0), 
-            new Dialogue("「い、急げ！！」", name, [emp], 0, myroom_day, 0), 
-            new Dialogue("おれは慌てて部屋を飛び出す。", "", [emp], 0, myroom_day, 0), 
-            new Dialogue("「いってきまーす！」", name, [emp], 0, entrance_day, 0), 
-            new Dialogue("「この時間なら走れば間に合う！」", name, [emp], 0, house_day, 0), 
-            new Dialogue("「ぜぇ、ぜぇ」", name, [emp], 0, road_day, 0), 
-            new Dialogue("正直言ってもう限界が近い。", name, [emp], 0, road_day, 0), 
-            new Dialogue("こんな思いはもう二度とごめんだと、この間のテストで学んだばかりじゃないか！", "", [emp], 0, road_day, 0), 
-            new Dialogue("「くそっ、なんでこんな時に限って赤信号なんだよ！」", name, [emp], 0, crossroad_day, 0), 
-            new Dialogue("心にも余裕がなくなってきた。←キレてる", "", [emp], 0, crossroad_day, 0), 
-            new Dialogue("「ギリギリセーフ！」", name, [emp], 0, schoolentrance_day, 0), 
-            new Dialogue("おれは今日も朝の悪魔に打ち勝ったんだ！", "", [emp], 0, schoolentrance_day, 0), 
-            new Dialogue("教室について一息ついた。", "", [emp], 0, class_day, 0), 
-            new Dialogue("「おはよ、"+name+"！」", "???", [emp], 0, class_day, 0), 
-            new Dialogue("後ろから声が聞こえてきた。", "", [emp], 0, class_day, 0), 
-            new Dialogue("振り返ると、見るとなんだか安心する姿があった。", "", [emp], 0, class_day, 0), 
-            new Dialogue("「アナ、おはよー」", name, [chara1_normal], 0, class_day, 0), 
-            new Dialogue("彼女の名前は穴見アナ。彼女はおれの信頼している友人で、気遣いができる上に、よく回復をしてくれる。", "", [chara1_normal], 0, class_day, 0), 
+            new Dialogue("「もう来週テストだなんて早いねー！」", "アナ", [chara1_normal], 0, class_day),
+            new Dialogue("「" + name + "は昨日どれくらい勉強した？」", "アナ", [chara1_normal], 0, class_day),
+            new Dialogue("「ええと、昨日の勉強時間は、」", name, [chara1_normal], 0, class_day),
+            new Dialogue("「ええと、昨日の勉強時間は、」", name, [chara1_normal], 0, class_day)
+        ];
 
+        this.Selection_commom_1 = [
+            "4時間14分",
+            "33時間7分",
+            "趣味に没頭してた"
+        ];
 
+        this.Dialogues_commom_1c = [
+            // 選択肢1の分岐先
+            [
+                new Dialogue("「4時間14分勉強したよ」", name, [chara1_normal], 0, class_day)
+            ],
+            // 選択肢2の分岐先
+            [
+                new Dialogue("「33時間7分！！」", "アナ", [chara1_normal], 0, class_day)
+            ],
+            // 選択肢3の分岐先
+            [
+                new Dialogue("「趣味に没頭してて、勉強してないな、、」", "アナ", [chara1_normal], 0, class_day)
+            ],
+        ];
 
-
-
-
-            new Dialogue("おはよう3"+name, "アナ", [chara1_normal], 0, schoolentrance_day, 0),
-            new Dialogue("おはよう4"+name, "アナ", [chara1_evilsmile], 0, class_day, 0),
-            new Dialogue("おはよう5"+name, "アナ", [chara1_smile, chara2_normal], 0, class_day, 0)
+        this.Dialogues_commom_2 = [
+            new Dialogue("共通ルート2", "", [chara1_smile], 0, class_day)
         ];
 
     }
@@ -69,10 +75,38 @@ class Manager {
         return this.level;
     }
 
-    clicked(){
-        this.level++;
-        this.level = this.level % this.Dialogues.length;
-        console.log("manager/level: " + this.level); 
+    clicked() {
+
+        // 現在のDialoguesがすべて表示されたとき
+        if (this.level+1 >= this.Dialogues.length) {
+            console.log("選択肢！");
+        }
+        else {
+            this.level++;
+        }
+        
+        console.log("manager/level: " + this.level);
+    }
+
+    // 選択が迫った時
+    isSelect(): boolean{
+        if (this.level+1 >= this.Dialogues.length) 
+            return true;
+        else
+            return false;
+    }
+
+    // 選択肢が選ばれたとき
+    Selected(choiceInd: number) {
+        // 1回目の分岐点。フラッグが0なので変更可能
+        if(this.levelPlus[0] == 0 && this.levelPlus[0] == 0) {
+            this.Dialogues = this.Dialogues.concat(this.Dialogues_commom_1c[choiceInd]); 
+            this.Dialogues = this.Dialogues.concat(this.Dialogues_commom_2); 
+            console.log("aaa"+this.Dialogues.length);
+            this.levelPlus[0]++;
+            this.levelPlus[1]=1;
+            this.level++;
+        }
     }
 
     // テキストのgetter

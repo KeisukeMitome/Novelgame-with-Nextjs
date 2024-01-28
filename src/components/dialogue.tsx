@@ -14,7 +14,6 @@ class Dialogue {
     private characters: StaticImageData[]; // キャラデータ
     private whoIndex: number; // 喋ってるキャラのインデックス
     private back: StaticImageData; // 背景データ
-    private root: number; // どのルートか
 
 
     constructor(
@@ -22,14 +21,12 @@ class Dialogue {
         who: string,
         characters: StaticImageData[],
         whoIndex: number,
-        back: StaticImageData,
-        root: number) {
+        back: StaticImageData) {
         this.text = text;
         this.who = who;
         this.characters = characters;
         this.whoIndex = whoIndex;
         this.back = back;
-        this.root = root;
     }
 
     // テキストのgetter
@@ -57,10 +54,6 @@ class Dialogue {
         return this.back;
     }
 
-    // rootのgetter
-    getRoot(): number {
-        return this.root;
-    }
 
 
 }

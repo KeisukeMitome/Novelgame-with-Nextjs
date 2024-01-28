@@ -369,6 +369,31 @@
 }
 
 
+/* 選択肢全体 */
+.choices-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 中央揃え */
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+/* 選択肢 */
+.choice-container {
+    background-color: rgba(225, 255, 226, 0.7);
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px #000;
+    text-align: center;
+    font-size: 2vw;
+    border: 2px solid rgb(0, 85, 61);
+    cursor: pointer;
+    padding: 10px; /* 選択肢と枠線の間に余白を設定できます */
+    margin: 10px; /* 選択肢の間に余白を設定できます */
+    display: inline-block; /* 選択肢が横に並ぶようにします */
+}
+
 
 
 /* 

@@ -1,5 +1,6 @@
 // pages/game.tsx
 import { useState } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image, { StaticImageData } from "next/image"
@@ -7,6 +8,7 @@ import emp from '/public/emp.png';
 
 import Characom from "../components/characom";
 import Textcom from "../components/textcom";
+import Selectcom from "../components/selectcom";
 
 import Manager from "../components/manager";
 
@@ -16,8 +18,12 @@ const GamePage: React.FC = () => {
   const router = useRouter();
   const { name } = router.query;
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showSelection, setShowSelection] = useState(false); // 選択肢表示・非表示
+  const [showText, setShowText] = useState(true); // テキスト表示・非表示
 
-  const [myManager, setMyManager] = useState(new Manager(0, String(name)));
+  const [choiceInd, setChoiceInd] = useState(-1); // 選択されたインデックス
+
+  const [myManager, setMyManager] = useState(new Manager(String(name)));
   const [textToShow, setTextToShow] = useState("Welcome to the game!");
   const [charaToShow, setCharaToShow] = useState([emp]);
   const [backToShow, setBackToShow] = useState(emp);
@@ -27,39 +33,63 @@ const GamePage: React.FC = () => {
     setShowConfirmation(true);
   };
 
+
   const textClick = () => {
-    
+    // setTextToShow(myManager.getText());
+    // setCharaToShow(myManager.getCharacters());
+    // setBackToShow(myManager.getBack());
+
     setTextToShow(myManager.getText());
     setCharaToShow(myManager.getCharacters());
     setBackToShow(myManager.getBack());
 
-    
     // テキストがクリックされたかどうか
     myManager.clicked();
+    // 選択フェーズが来たときに選択肢を表示する
+    setShowSelection(myManager.isSelect());
   };
+
+  // choiceInd の値が変更されたときに実行される関数
+  useEffect(() => {
+    // ここに choiceInd の値が変更されたときに行いたい処理を書く
+    if (choiceInd > -1) {
+      console.log("game/choice: " + choiceInd);
+
+      myManager.Selected(choiceInd);
+
+      // 選択フェーズが来たときに選択肢を表示する
+      setShowSelection(myManager.isSelect());
+
+      setChoiceInd(-1);
+    }
+
+  }, [choiceInd]); // choiceInd が変更されたときに useEffect 内の関数が実行される
+
 
 
 
   return (
     <main>
 
-
-
       <div className='overlay-base'>
 
-        <Image className="image_back" src={backToShow} alt="back Image" />
-        <Characom charas={charaToShow}/>
-        {/* <Image className="overlay-image" src={charaToShow} alt="Overlay Image" /> */}
-        
+
+        {showSelection && (
+          <Selectcom texts={["選択肢0", "選択肢1", "選択肢3----------------------"]} setChoiceInd={setChoiceInd} />
+        )}
+
+        <Image className="image_back" src={myManager.getBack()} alt="back Image" />
+        <Characom charas={myManager.getCharacters()} />
+
+
 
         <div className="center-text">
 
-
-
-          {/* <p onClick={textClick} className='main-text'>{textToShow}</p> */}
-          <p onClick={textClick} className='main-text'>
-            <Textcom tex={textToShow}/>
-          </p>
+          {showText && (
+            <p onClick={textClick} className='main-text'>
+              <Textcom tex={myManager.getText()} />
+            </p>
+          )}
 
 
           <div className='menu'>
