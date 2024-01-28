@@ -4,16 +4,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image, { StaticImageData } from "next/image"
 import emp from '/public/emp.png';
-import class_day from '/public/back/class_day.jpg';
-import myroom_day from '/public/back/myroom_day.jpg';
-import entrance_day from '/public/back/entrance_day.jpg';
-import house_day from '/public/back/house_day.jpg';
-import road_day from '/public/back/road_day.jpg';
-import crossroad_day from '/public/back/crossroad_day.jpg';
-import schoolentrance_day from '/public/back/schoolentrance_day.jpg';
-import chara1_normal from '/public/chara/chara1-normal.png';
-import chara1_evilsmile from '/public/chara/chara1-evilsmile.png';
-import chara1_smile from '/public/chara/chara1-smile.png';
 
 import Characom from "../components/characom";
 import Textcom from "../components/textcom";
@@ -27,12 +17,10 @@ const GamePage: React.FC = () => {
   const { name } = router.query;
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  const [level, setLevel] = useState(0);
+  const [myManager, setMyManager] = useState(new Manager(0, String(name)));
   const [textToShow, setTextToShow] = useState("Welcome to the game!");
   const [charaToShow, setCharaToShow] = useState([emp]);
   const [backToShow, setBackToShow] = useState(emp);
-
-  const myManager = new Manager(0, String(name));
 
   const handleConfirmationButtonClick = () => {
     // ここで確認ウィンドウを表示するための処理を追加
@@ -45,13 +33,9 @@ const GamePage: React.FC = () => {
     setCharaToShow(myManager.getCharacters());
     setBackToShow(myManager.getBack());
 
-    console.log("game/level: " + level);
     
     // テキストがクリックされたかどうか
-    setLevel((prevLevel) => (prevLevel + 1));
-    myManager.setLevel(level);
-
-    console.log("game/myManager.level: " + myManager.getLevel());
+    myManager.clicked();
   };
 
 
