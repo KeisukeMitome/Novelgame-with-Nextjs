@@ -1,0 +1,74 @@
+
+/* キャラ表示 1人（喋ってる） */
+.overlay_image_talking {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 50%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 123vh; /* 画像の最大幅を100%に制限 */
+    max-height: 164vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+/* キャラ表示 1人（喋ってない） */
+.overlay_image {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 50%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+
+/* キャラ表示 2人の場合 左 */
+.overlay_image_L {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 35%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+/* キャラ表示 2人の場合 右 */
+.overlay_image_R {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 65%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+
+
+/* キャラ表示 3人の場合 左 */
+.overlay_image_3L {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 30%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+/* キャラ表示 3人の場合 中 */
+.overlay_image_3M {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 50%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}
+/* キャラ表示 3人の場合 右 */
+.overlay_image_3R {
+    position: absolute; /* 絶対位置指定 */
+    top: 80%; /* 上端を画面の中央に配置 */
+    left: 70%; /* 左端を画面の中央に配置 */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    max-width: 120vh; /* 画像の最大幅を100%に制限 */
+    max-height: 160vh; /* 画像の最大高さを100%に制限 */
+    z-index: 1; /* 背景より前面に表示 */
+}

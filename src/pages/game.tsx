@@ -28,6 +28,7 @@ const GamePage: React.FC = () => {
 
   const [textToShow, setTextToShow] = useState("Welcome to the game!");
   const [nameShow, setNameShow] = useState("");
+  const [talkingShow, setTalkingShow] = useState(-1);
   const [charaToShow, setCharaToShow] = useState([emp]);
   const [backToShow, setBackToShow] = useState(emp);
   const [selectShow, setSelectShow] = useState([""]);
@@ -42,6 +43,7 @@ const GamePage: React.FC = () => {
   const textClick = () => {
     setTextToShow(myManager.getText());
     setNameShow(myManager.getName());
+    setTalkingShow(myManager.getTalking());
     setCharaToShow(myManager.getCharacters());
     setBackToShow(myManager.getBack());
     setSelectShow(myManager.getSelections());
@@ -84,7 +86,7 @@ const GamePage: React.FC = () => {
 
 
         <Image className="image_back" src={myManager.getBack()} alt="back Image" />
-        <Characom charas={myManager.getCharacters()} />
+        <Characom charas={myManager.getCharacters()} talking={myManager.getTalking()} />
 
         {showName && (
           <p className='main-text-name'>{myManager.getName()}</p>
