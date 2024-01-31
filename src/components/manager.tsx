@@ -7,6 +7,8 @@ import Dialogue from "../components/dialogue";
 import chara1_normal from '/public/chara/chara1-normal.png';
 import chara1_evilsmile from '/public/chara/chara1-evilsmile.png';
 import chara1_smile from '/public/chara/chara1-smile.png';
+import chara1_surprised from '/public/chara/chara1-surprised.png';
+import chara1_sad from '/public/chara/chara1-sad.png';
 
 import chara2_normal from '/public/chara/chara2-normal.png';
 
@@ -50,8 +52,8 @@ class Manager {
             // 選択肢1の分岐先
             [
                 new Dialogue("「4時間14分勉強したよ」", name, [chara1_normal], -1, class_day),
-                new Dialogue("「え、そんなに勉強したの！？」", "アナ", [chara1_normal], 0, class_day),
-                new Dialogue("「このままじゃ置いてかれちゃう、、、」", "アナ", [chara1_normal], 0, class_day),
+                new Dialogue("「え、そんなに勉強したの！？」", "アナ", [chara1_surprised], 0, class_day),
+                new Dialogue("「このままじゃ置いてかれちゃう、、、」", "アナ", [chara1_sad], 0, class_day),
                 new Dialogue("「ねえ、この後わからないとこあったら聞いてもいい？」", "アナ", [chara1_normal], 0, class_day),
                 new Dialogue("「おう、お安いご用さ！」", name, [chara1_normal], -1, class_day),
             ],
@@ -69,8 +71,8 @@ class Manager {
             // 選択肢3の分岐先
             [
                 new Dialogue("「趣味に没頭してて、勉強してないな、、」", name, [chara1_normal], -1, class_day),
-                new Dialogue("「"+name+"は音楽のミックスにはまってるんだっけ？」", "アナ", [chara1_normal], 0, class_day),
-                new Dialogue("「趣味に没頭するのはいいことだと思うけど、そろそろ勉強しはじめた方がいいんじゃない？」", "アナ", [chara1_normal], 0, class_day),
+                new Dialogue("「"+name+"は音楽のミックスにはまってるんだっけ？」", "アナ", [chara1_surprised], 0, class_day),
+                new Dialogue("「趣味に没頭するのはいいことだと思うけど、そろそろ勉強しはじめた方がいいんじゃない？」", "アナ", [chara1_sad], 0, class_day),
                 new Dialogue("「そうだな。ちょうど1週間前だしちょうどいい機会か。」", name, [chara1_normal], -1, class_day),
                 new Dialogue("「せっかくだし一緒に勉強しないか？」", name, [chara1_normal], -1, class_day),
                 new Dialogue("「うん！もちろんいいよ！」", "アナ", [chara1_smile], 0, class_day),
