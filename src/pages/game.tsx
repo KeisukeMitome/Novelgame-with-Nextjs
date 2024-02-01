@@ -54,9 +54,9 @@ const GamePage: React.FC = () => {
     // setSaveData(saveData.concat( new Manager(String(name)) ));
   };
 
-  useEffect(() => {
-    console.log("saveData");
-  }, [saveData]);
+  // useEffect(() => {
+  //   console.log("saveData");
+  // }, [saveData]);
 
   const loadCliked = () => {
     setShowLoad(true);

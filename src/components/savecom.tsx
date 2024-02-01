@@ -40,11 +40,11 @@ const Characom: React.FC<saveProps> = (props) => {
 
 
             <button onClick={() => saveCliked(0)} >1. {props.saveData[0] && props.saveData[0].getText() !== null ? props.saveData[0].getText() : '空のスロット1'}</button>
-            <p>{props.saveData[0].getSavedDate()}</p>
+            <p className='savedDate'>{props.saveData[0].getSavedDate()}</p>
             <button onClick={() => saveCliked(1)} >2. {props.saveData[1] && props.saveData[1].getText() !== null ? props.saveData[1].getText() : '空のスロット2'}</button>
-            <p>{props.saveData[1].getSavedDate()}</p>
+            <p className='savedDate'>{props.saveData[1].getSavedDate()}</p>
             <button onClick={() => saveCliked(2)} >3. {props.saveData[2] && props.saveData[2].getText() !== null ? props.saveData[2].getText() : '空のスロット3'}</button>
-            <p>{props.saveData[2].getSavedDate()}</p>
+            <p className='savedDate'>{props.saveData[2].getSavedDate()}</p>
 
             <button className='menu_button' onClick={() => props.setShowSave(false)}>とじる</button>
         </div>

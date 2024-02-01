@@ -269,6 +269,12 @@
     /* 他のスタイルも必要に応じて追加 */
 }
 
+/* セーブされた日時 */
+.savedDate {
+    margin-top: -2vh;
+    font-size: 14px;
+}
+
 
 /* 背景を表示 title */
 .image_back_title {
