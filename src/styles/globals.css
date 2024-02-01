@@ -260,6 +260,15 @@
     /* 他のスタイルも必要に応じて追加 */
 }
 
+/* メニュー右上設置 */
+.load {
+    position: fixed;
+    transform: translate(-50%, -50%); /* 中央揃え */
+    top: 50%;
+    left: 50%;
+    /* 他のスタイルも必要に応じて追加 */
+}
+
 
 /* 背景を表示 title */
 .image_back_title {

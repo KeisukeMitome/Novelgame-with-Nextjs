@@ -25,6 +25,9 @@ import schoolentrance_day from '/public/back/schoolentrance_day.jpg';
 class Manager {
     private level: number; // 進行度
     private levelPlus: number[]; // [進行度（選択肢毎）, フラッグ]
+    private myName: string; // 自分の名前
+    private savedDate: string; // セーブされた日時
+
     private Dialogues: Dialogue[]; // テキストやキャラなどの情報
     private Dialogues_commom_1c: Dialogue[][]; // 共通ルート1回目の選択肢1分岐先
     private Dialogues_commom_2: Dialogue[]; // 共通ルート2（共通ルート1回目の選択後）
@@ -34,6 +37,9 @@ class Manager {
     constructor(name: string) {
         this.level = 0;
         this.levelPlus = [0, 1]; // 分岐後はフラッグが1となる。フラッグを0にしてから++
+        this.myName = name;
+        this.savedDate = "空のスロット";
+
         // セリフ、喋るキャラ、キャラ[]、キャラの指数、背景、ルート
         this.Dialogues = [
             new Dialogue("「もう来週テストだなんて早いねー！」", "アナ", [chara1_normal], 0, class_day),
@@ -91,11 +97,27 @@ class Manager {
     }
 
     // 進行度をセット（必要ないかも）
-    setLevel(level: number) {
-        this.level = level;
-    }
+    // setLevel(level: number) {
+    //     this.level = level;
+    // }
     getLevel(): number {
         return this.level;
+    }
+    getLevelPlus(): number[] {
+        return this.levelPlus;
+    }
+    getMyName(): string {
+        return this.myName;
+    }
+    getSavedDate(): string {
+        return this.savedDate;
+    }
+    setSavedDate(date: Date) {
+        // セーブされたときのDateを文字列にしてセットする
+        this.savedDate = date.toLocaleString();
+    }
+    getDialogues(): Dialogue[] {
+        return this.Dialogues;
     }
 
     clicked() {
@@ -164,8 +186,21 @@ class Manager {
 
     // 選択肢のgetter()
     getSelections(): string[]{
+        console.log("levelplus: "+this.levelPlus);
         if(this.levelPlus[0] == 0) return this.Selection_commom_1;
         else return [""];
+    }
+
+    // インスタンスをコピー
+    copyInstance(level:number, levelPlus:number[], dialogues:Dialogue[]){
+        this.level = level;
+        this.levelPlus[0] = levelPlus[0];
+        this.levelPlus[1] = levelPlus[1];
+        this.Dialogues = [];
+        
+        for (let i=0; i<dialogues.length; i++) {
+            this.Dialogues = this.Dialogues.concat(dialogues[i]);
+        }
     }
 
 }
