@@ -23,17 +23,17 @@ const Characom: React.FC<chaProps> = (props) => {
     else if (props.charas.length == 2) {
         return (
             <div>
-                <Image className="overlay-image-L" src={props.charas[0]} alt="Description of the image" />
-                <Image className="overlay-image-R" src={props.charas[1]} alt="Description of the image" />
+                <Image className={crst.overlay_image_L} src={props.charas[0]} alt="Description of the image" />
+                <Image className={crst.overlay_image_R} src={props.charas[1]} alt="Description of the image" />
             </div>
         );
     }
     else if (props.charas.length == 3) {
         return (
             <div>
-                <Image className="overlay-image-3L" src={props.charas[0]} alt="Description of the image" />
-                <Image className="overlay-image-3M" src={props.charas[1]} alt="Description of the image" />
-                <Image className="overlay-image-3R" src={props.charas[2]} alt="Description of the image" />
+                <Image className={crst.overlay_image_3L} src={props.charas[0]} alt="Description of the image" />
+                <Image className={crst.overlay_image_3M} src={props.charas[1]} alt="Description of the image" />
+                <Image className={crst.overlay_image_3R} src={props.charas[2]} alt="Description of the image" />
             </div>
         );
     }

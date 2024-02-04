@@ -18,6 +18,8 @@ export interface saveProps {
 // 受け取ったキャラの配列を左から順に表示する
 const Characom: React.FC<saveProps> = (props) => {
 
+    const [saved, setSaved] = useState(false); // セーブしました。
+
     const saveCliked = (choiceIndex: number) => {
 
         props.saveData[choiceIndex] = new Manager(props.mymanager.getMyName());
@@ -26,6 +28,9 @@ const Characom: React.FC<saveProps> = (props) => {
 
         props.saveData[choiceIndex].setSavedDate(new Date());
         // props.setShowSave(false);
+
+        // 「セーブしました」を表示
+        setSaved(true);
     };
 
     useEffect(() => {
@@ -36,15 +41,23 @@ const Characom: React.FC<saveProps> = (props) => {
 
     return <div className='load'>
         <div className="confirmation_modal">
-            <p>せーぶ</p>
 
+            {saved && (
+                <p>セーブしました</p>
+            )}
 
-            <button onClick={() => saveCliked(0)} >1. {props.saveData[0] && props.saveData[0].getText() !== null ? props.saveData[0].getText() : '空のスロット1'}</button>
-            <p className='savedDate'>{props.saveData[0].getSavedDate()}</p>
-            <button onClick={() => saveCliked(1)} >2. {props.saveData[1] && props.saveData[1].getText() !== null ? props.saveData[1].getText() : '空のスロット2'}</button>
-            <p className='savedDate'>{props.saveData[1].getSavedDate()}</p>
-            <button onClick={() => saveCliked(2)} >3. {props.saveData[2] && props.saveData[2].getText() !== null ? props.saveData[2].getText() : '空のスロット3'}</button>
-            <p className='savedDate'>{props.saveData[2].getSavedDate()}</p>
+            {!saved && (
+                <div>
+                    <p>せーぶ</p>
+
+                    <button onClick={() => saveCliked(0)} >1. {props.saveData[0] && props.saveData[0].getText() !== null ? props.saveData[0].getText() : '空のスロット1'}</button>
+                    <p className='savedDate'>{props.saveData[0].getSavedDate()}</p>
+                    <button onClick={() => saveCliked(1)} >2. {props.saveData[1] && props.saveData[1].getText() !== null ? props.saveData[1].getText() : '空のスロット2'}</button>
+                    <p className='savedDate'>{props.saveData[1].getSavedDate()}</p>
+                    <button onClick={() => saveCliked(2)} >3. {props.saveData[2] && props.saveData[2].getText() !== null ? props.saveData[2].getText() : '空のスロット3'}</button>
+                    <p className='savedDate'>{props.saveData[2].getSavedDate()}</p>
+                </div>
+            )}
 
             <button className='menu_button' onClick={() => props.setShowSave(false)}>とじる</button>
         </div>

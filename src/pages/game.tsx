@@ -24,7 +24,7 @@ const GamePage: React.FC = () => {
   const [showText, setShowText] = useState(true); // テキスト表示・非表示
   const [showName, setShowName] = useState(true); // 名前表示・非表示
   const [showLoad, setShowLoad] = useState(false); // ロード画面表示・非表示
-  const [showSave, setShowSave] = useState(false); // ロード画面表示・非表示
+  const [showSave, setShowSave] = useState(false); // セーブ画面表示・非表示
 
   const [choiceInd, setChoiceInd] = useState(-1); // 選択されたインデックス
 
@@ -95,8 +95,10 @@ const GamePage: React.FC = () => {
 
   }, [choiceInd]); // choiceInd が変更されたときに useEffect 内の関数が実行される
 
+  // ロードしたときとかに発動する
   useEffect(() => {
     setShowSelection(myManager.isSelect());
+    setShowName(myManager.isName());
     console.log("動作");
   }, [myManager]);
 

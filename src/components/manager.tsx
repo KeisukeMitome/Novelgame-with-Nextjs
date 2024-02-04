@@ -11,6 +11,12 @@ import chara1_surprised from '/public/chara/chara1-surprised.png';
 import chara1_sad from '/public/chara/chara1-sad.png';
 
 import chara2_normal from '/public/chara/chara2-normal.png';
+import chara2_evilsmile from '/public/chara/chara2-evilsmile.png';
+import chara2_smile from '/public/chara/chara2-smile.png';
+import chara2_surprised from '/public/chara/chara2-surprised.png';
+
+import chara3_normal from '/public/chara/chara3-normal.png';
+import chara3_smile from '/public/chara/chara3-smile.png';
 
 import emp from '/public/emp.png';
 import class_day from '/public/back/class_day.jpg';
@@ -40,7 +46,7 @@ class Manager {
         this.myName = name;
         this.savedDate = "空のスロット";
 
-        // セリフ、喋るキャラ、キャラ[]、キャラの指数、背景、ルート
+        // セリフ、喋るキャラ、キャラ[]、キャラの指数(誰もしゃべってない時と自分の時は-1)、背景、ルート
         this.Dialogues = [
             new Dialogue("「もう来週テストだなんて早いねー！」", "アナ", [chara1_normal], 0, class_day),
             new Dialogue("「" + name + "は昨日どれくらい勉強した？」", "アナ", [chara1_normal], 0, class_day),
@@ -90,8 +96,27 @@ class Manager {
 
         this.Dialogues_commom_2 = [
             new Dialogue("かくしておれはアナと一緒に勉強することになった。", "", [chara1_smile], -1, class_day),
-            new Dialogue("共通ルート22", "", [chara1_evilsmile], -1, class_day),
-            new Dialogue("共通ルート222", "", [chara1_evilsmile], -1, class_day)
+            new Dialogue("「何からやる？」", "アナ", [chara1_normal], 0, class_day),
+            new Dialogue("「数学と物理が苦手だな、、、」", name, [chara1_normal], -1, class_day),
+            new Dialogue("「それなら、その2つで決まりだね！」", "アナ", [chara1_smile], 0, class_day),
+            new Dialogue("2人で勉強して20分くらい経った。", "", [chara1_normal], -1, class_day),
+            new Dialogue("「この問題どうやって解くんだ、、、？」", name, [chara1_normal], -1, class_day),
+            new Dialogue("「何この問題、今までのやり方じゃ全然通用しないね」", "アナ", [chara1_surprised], 0, class_day),
+            new Dialogue("「詰んだな。まあ、こんな難しい問題解かなくても何とかなるんじゃないか？」", name, [chara1_normal], -1, class_day),
+            new Dialogue("「うーん、、、でもあの先生のテストってこういう難問出てきそうじゃない？」", "アナ", [chara1_sad], 0, class_day),
+            new Dialogue("「こういう問題に限って配点は高いしな」", name, [chara1_normal], -1, class_day),
+            new Dialogue("「よし、誰かに助けてもらうか！」", name, [chara1_normal], -1, class_day),
+            new Dialogue("「それならあの子に聞こう！」", "アナ", [chara1_normal], 0, class_day),
+            new Dialogue("「一緒に聞きに行こう！」", "アナ", [chara1_normal], 0, class_day),
+            new Dialogue("2人で席を立ち、教室の前の方に行く。", "", [emp], -1, class_day),
+            new Dialogue("「メイちゃん！」", "アナ", [chara1_normal], 0, class_day),
+            new Dialogue("「この問題教えて欲しいんだけど！」", "アナ", [chara1_smile], 0, class_day),
+            new Dialogue("「いいよー」", "メイ", [chara1_normal, chara2_normal], 1, class_day),
+            new Dialogue("彼女の名前は、細川メイ。小学校、中学校も同じだったが、同じクラスになるのは初めてだ。", "", [chara1_normal, chara2_normal], -1, class_day),
+
+
+            
+            new Dialogue("「.....。」", "???", [chara1_normal, chara2_normal, chara3_normal], 2, class_day),
         ];
 
     }
