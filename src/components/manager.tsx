@@ -19,7 +19,9 @@ import chara3_normal from '/public/chara/chara3-normal.png';
 import chara3_smile from '/public/chara/chara3-smile.png';
 
 import emp from '/public/emp.png';
+import black from '/public/back/black.png';
 import class_day from '/public/back/class_day.jpg';
+import class_late_afternoon from '/public/back/class_late_afternoon.jpg';
 import myroom_day from '/public/back/myroom_day.jpg';
 import entrance_day from '/public/back/entrance_day.jpg';
 import house_day from '/public/back/house_day.jpg';
@@ -35,10 +37,13 @@ class Manager {
     private savedDate: string; // セーブされた日時
 
     private Dialogues: Dialogue[]; // テキストやキャラなどの情報
-    private Dialogues_commom_1c: Dialogue[][]; // 共通ルート1回目の選択肢1分岐先
+    private Dialogues_commom_1c: Dialogue[][]; // 共通ルート1回目の選択肢の分岐先
     private Dialogues_commom_2: Dialogue[]; // 共通ルート2（共通ルート1回目の選択後）
+    private Dialogues_commom_2c: Dialogue[][]; // 共通ルート2回目の選択肢の分岐先
+    private Dialogues_commom_3: Dialogue[]; // 共通ルート3（共通ルート2回目の選択後）
 
     private Selection_commom_1: string[]; // 共通ルート1回目の選択肢
+    private Selection_commom_2: string[]; // 共通ルート2回目の選択肢
 
     constructor(name: string) {
         this.level = 0;
@@ -91,7 +96,7 @@ class Manager {
                 new Dialogue("「私のスパルタ授業に耐えられるかな？？」", "アナ", [chara1_evilsmile], 0, class_day),
                 new Dialogue("「ス、スパルタは勘弁してくれ、、、」", "アナ", [chara1_evilsmile], -1, class_day),
                 new Dialogue("「冗談！」", "アナ", [chara1_smile], 0, class_day)
-            ],
+            ]
         ];
 
         this.Dialogues_commom_2 = [
@@ -113,10 +118,64 @@ class Manager {
             new Dialogue("「この問題教えて欲しいんだけど！」", "アナ", [chara1_smile], 0, class_day),
             new Dialogue("「いいよー」", "メイ", [chara1_normal, chara2_normal], 1, class_day),
             new Dialogue("彼女の名前は、細川メイ。小学校、中学校も同じだったが、同じクラスになるのは初めてだ。", "", [chara1_normal, chara2_normal], -1, class_day),
+            new Dialogue("「あー、この問題ね」", "メイ", [chara1_normal, chara2_normal], 1, class_day),
+            new Dialogue("「この問題は実はこの公式が使えて、」", "メイ", [chara1_normal, chara2_normal], 1, class_day),
+            new Dialogue("「で、ここでこの計算をするとここがこうなって、」", "メイ", [chara1_surprised, chara2_normal], 1, class_day),
+            new Dialogue("「あ！それでここをこうするんだ！」", "アナ", [chara1_surprised, chara2_normal], 0, class_day),
+            new Dialogue("「そういうこと」", "メイ", [chara1_smile, chara2_smile], 1, class_day),
+            new Dialogue("「すごい！簡単に理解できた！」", "アナ", [chara1_smile, chara2_smile], 0, class_day),
+            new Dialogue("「やっぱり学年トップは格が違うね！」", "アナ", [chara1_normal, chara2_smile], 0, class_day),
+            new Dialogue("「そんなに褒めても何も出ないよー」", "メイ", [chara1_normal, chara2_smile], 1, class_day),
+            new Dialogue("学年トップ！？細川さんってそんなに優秀だったのか！？", "", [chara1_normal, chara2_normal], -1, class_day),
+            new Dialogue("「"+name+"君も理解できた？」", "メイ", [chara1_normal, chara2_smile], 1, class_day),
+            new Dialogue("「うん。すごく理解しやすかったよ。ありがとう！」", name, [chara1_normal, chara2_normal], -1, class_day),
+            new Dialogue("「それにしても細川さんって学年トップだったのか。そんなすごい人が身近にいるなんて思いもしなかったよ。」", name, [chara1_normal, chara2_normal], -1, class_day),
+            new Dialogue("「まあちゃんと勉強しはじめたのは高校受験の時だったからね。ちゃんとし始めたのは最近の話だよ」", "メイ", [chara1_normal, chara2_smile], 1, class_day),
+            new Dialogue("「そういえば、小中学校一緒だったのに連絡先持ってなくない？」", "メイ", [chara1_normal, chara2_normal], 1, class_day),
+            new Dialogue("「せっかくの機会だし交換しとこうよ」", "メイ", [chara1_normal, chara2_normal], 1, class_day),
+            new Dialogue("「そうだね。これからもよろしくな」", name, [chara1_normal, chara2_normal], -1, class_day),
+            new Dialogue("「はーい」", "メイ", [chara1_normal, chara2_smile], 1, class_day),
+            new Dialogue("『チャイム』", "", [chara1_surprised, chara2_normal], -1, class_day),
+            new Dialogue("「丁度1時間目終わったし解散しよっか」", "アナ", [chara1_normal, chara2_normal], 0, class_day),
+            new Dialogue("「改めてありがとう細川さん」", name, [chara1_normal, chara2_normal], -1, class_day),
+            new Dialogue("「いつでも聞いてねー」", "メイ", [chara1_normal, chara2_smile], 1, class_day),
+            new Dialogue("この後の授業は全部退屈そうだな。数学Aに現代文に世界史か。帰りたい、、、。", "", [], -1, class_day),
+            new Dialogue("「6 HOURS LATER」", "", [], -1, black),
+            new Dialogue(".........。", "", [], -1, class_late_afternoon),
+            new Dialogue("「今日の授業はもう終わりか。」", name, [], -1, class_late_afternoon),
+            new Dialogue("授業を受ける前はあんなに嫌だったのに、いざ終えてみるとそこまで苦痛ではない上に、意外にためになることも学べる。", "", [], -1, class_late_afternoon),
+            new Dialogue("なんとも不思議なものだ。", "", [], -1, class_late_afternoon),
+            new Dialogue("さて、放課後になったことだし、この後は、", "", [], -1, class_late_afternoon),
+            new Dialogue("さて、放課後になったことだし、この後は、", "", [], -1, class_late_afternoon)
+        ];
+        
+        this.Selection_commom_2 = [
+            "買い物に行く",
+            "メイと一緒に帰る",
+            "部活に行く"
+        ];
 
+        this.Dialogues_commom_2c = [
+            // 選択肢1の分岐先
+            [
+                new Dialogue("「そういえば親からお使いを頼まれてたっけ。」", name, [], 0, class_late_afternoon),
+                new Dialogue("「学校の近くの」", name, [], 0, class_late_afternoon)
+            ],
+            // 選択肢2の分岐先
+            [
+                new Dialogue("「小中学校が一緒ということは、メイとは通学路がほとんどなのか。」", name, [], 0, class_late_afternoon),
+                new Dialogue("「一緒に帰ってみようかな」", name, [], 0, class_late_afternoon)
+            ],
+            // 選択肢3の分岐先
+            [
+                new Dialogue("「今日はバイトもないし、部活に行くか」", name, [], 0, class_late_afternoon),
+                new Dialogue("俺の所属している軽音部は、出席が強制ではなく自主性である。", "", [], -1, class_late_afternoon)
+            ]
+        ];
 
-            
-            new Dialogue("「.....。」", "???", [chara1_normal, chara2_normal, chara3_normal], 2, class_day),
+        this.Dialogues_commom_3 = [
+            new Dialogue("共通ルート3", "", [], -1, class_late_afternoon),
+            new Dialogue("共通ルート3", "", [], -1, class_late_afternoon)
         ];
 
     }
@@ -168,11 +227,22 @@ class Manager {
 
     // 選択肢が選ばれたとき
     Selected(choiceInd: number) {
+        this.levelPlus[1] = 0; // フラッグを0にして選択かもう状態にする
+
         // 1回目の分岐点。フラッグが0なので変更可能
-        if(this.levelPlus[0] == 0 && this.levelPlus[0] == 0) {
+        if(this.levelPlus[0] == 0 && this.levelPlus[1] == 0) {
             this.Dialogues = this.Dialogues.concat(this.Dialogues_commom_1c[choiceInd]); 
             this.Dialogues = this.Dialogues.concat(this.Dialogues_commom_2); 
-            console.log("aaa"+this.Dialogues.length);
+            // console.log("aaa"+this.Dialogues.length);
+            this.levelPlus[0]++;
+            this.levelPlus[1]=1;
+            this.level++;
+        }
+
+        // 2回目の分岐点。フラッグが0なので変更可能
+        if(this.levelPlus[0] == 1 && this.levelPlus[1] == 0) {
+            this.Dialogues = this.Dialogues.concat(this.Dialogues_commom_2c[choiceInd]); 
+            this.Dialogues = this.Dialogues.concat(this.Dialogues_commom_3);
             this.levelPlus[0]++;
             this.levelPlus[1]=1;
             this.level++;
@@ -213,6 +283,7 @@ class Manager {
     getSelections(): string[]{
         console.log("levelplus: "+this.levelPlus);
         if(this.levelPlus[0] == 0) return this.Selection_commom_1;
+        if(this.levelPlus[0] == 1) return this.Selection_commom_2;
         else return [""];
     }
 
