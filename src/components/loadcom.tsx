@@ -19,12 +19,16 @@ const Characom: React.FC<loadProps> = (props) => {
 
     const loadCliked = (choiceIndex: number) => {
 
-        const newCopyManagerInstance = new Manager(props.saveData[choiceIndex].getMyName());
-        newCopyManagerInstance.copyInstance(props.saveData[choiceIndex].getLevel(), props.saveData[choiceIndex].getLevelPlus(), props.saveData[choiceIndex].getDialogues());
-        props.Load(newCopyManagerInstance);
+        if(props.saveData[choiceIndex].getMyName() != ""){
 
-        // props.setShowLoad(false);
-        setLoaded(true); // ロードしましたを表示
+            const newCopyManagerInstance = new Manager(props.saveData[choiceIndex].getMyName());
+            newCopyManagerInstance.copyInstance(props.saveData[choiceIndex].getLevel(), props.saveData[choiceIndex].getLevelPlus(), props.saveData[choiceIndex].getDialogues());
+            props.Load(newCopyManagerInstance);
+    
+            // props.setShowLoad(false);
+            setLoaded(true); // ロードしましたを表示
+            
+        }
     };
 
     return <div className='load'>
@@ -38,11 +42,11 @@ const Characom: React.FC<loadProps> = (props) => {
                 <div>
                     <p>ろーど</p>
 
-                    <button onClick={() => loadCliked(0)} >1. {props.saveData[0] && props.saveData[0].getText() !== null ? props.saveData[0].getText() : '空のスロット1'}</button>
+                    <button onClick={() => loadCliked(0)} >1. {props.saveData[0] && props.saveData[0].getMyName() !== "" ? props.saveData[0].getText() : '空のスロット1'}</button>
                     <p className='savedDate'>{props.saveData[0].getSavedDate()}</p>
-                    <button onClick={() => loadCliked(1)} >2. {props.saveData[1] && props.saveData[1].getText() !== null ? props.saveData[1].getText() : '空のスロット2'}</button>
+                    <button onClick={() => loadCliked(1)} >2. {props.saveData[1] && props.saveData[1].getMyName() !== "" ? props.saveData[1].getText() : '空のスロット2'}</button>
                     <p className='savedDate'>{props.saveData[1].getSavedDate()}</p>
-                    <button onClick={() => loadCliked(2)} >3. {props.saveData[2] && props.saveData[2].getText() !== null ? props.saveData[2].getText() : '空のスロット3'}</button>
+                    <button onClick={() => loadCliked(2)} >3. {props.saveData[2] && props.saveData[2].getMyName() !== "" ? props.saveData[2].getText() : '空のスロット3'}</button>
                     <p className='savedDate'>{props.saveData[2].getSavedDate()}</p>
                 </div>
             )}

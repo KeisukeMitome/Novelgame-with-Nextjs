@@ -158,17 +158,17 @@ class Manager {
         this.Dialogues_commom_2c = [
             // 選択肢1の分岐先
             [
-                new Dialogue("「そういえば親からお使いを頼まれてたっけ。」", name, [], 0, class_late_afternoon),
-                new Dialogue("「学校の近くの」", name, [], 0, class_late_afternoon)
+                new Dialogue("「そういえば親からお使いを頼まれてたっけ。」", name, [], -1, class_late_afternoon),
+                new Dialogue("「学校の近くの」", name, [], -1, class_late_afternoon)
             ],
             // 選択肢2の分岐先
             [
-                new Dialogue("「小中学校が一緒ということは、メイとは通学路がほとんどなのか。」", name, [], 0, class_late_afternoon),
-                new Dialogue("「一緒に帰ってみようかな」", name, [], 0, class_late_afternoon)
+                new Dialogue("「小中学校が一緒ということは、メイとは通学路がほとんどなのか。」", name, [], -1, class_late_afternoon),
+                new Dialogue("「一緒に帰ってみようかな」", name, [], -1, class_late_afternoon)
             ],
             // 選択肢3の分岐先
             [
-                new Dialogue("「今日はバイトもないし、部活に行くか」", name, [], 0, class_late_afternoon),
+                new Dialogue("「今日はバイトもないし、部活に行くか」", name, [], -1, class_late_afternoon),
                 new Dialogue("俺の所属している軽音部は、出席が強制ではなく自主性である。", "", [], -1, class_late_afternoon)
             ]
         ];
@@ -199,6 +199,10 @@ class Manager {
     setSavedDate(date: Date) {
         // セーブされたときのDateを文字列にしてセットする
         this.savedDate = date.toLocaleString();
+    }
+    setSavedDateString(dateString: string) {
+        // セーブされたときのDateを文字列にしてセットする
+        this.savedDate = dateString;
     }
     getDialogues(): Dialogue[] {
         return this.Dialogues;

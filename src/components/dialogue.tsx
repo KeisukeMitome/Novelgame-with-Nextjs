@@ -29,6 +29,16 @@ class Dialogue {
         this.back = back;
     }
 
+    toJSON() {
+        return {
+            text: this.text,
+            who: this.who,
+            characters: this.characters,
+            whoIndex: this.whoIndex,
+            back: this.back
+        };
+    }
+
     // テキストのgetter
     getText(): string {
         return this.text;

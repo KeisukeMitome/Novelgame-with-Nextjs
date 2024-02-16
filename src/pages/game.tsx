@@ -12,6 +12,7 @@ import Selectcom from "../components/selectcom";
 import Loadcom from "../components/loadcom";
 import Savecom from "../components/savecom";
 
+import Dialogue from "../components/dialogue";
 import Manager from "../components/manager";
 
 
@@ -29,9 +30,9 @@ const GamePage: React.FC = () => {
   const [choiceInd, setChoiceInd] = useState(-1); // 選択されたインデックス
 
   // 管理するクラス
-  const [myManager, setMyManager] = useState(new Manager(String(name))); 
+  const [myManager, setMyManager] = useState(new Manager(String(name)));
   // 管理するクラス 長さは3に指定
-  const [saveData, setSaveData] = useState<Manager[]>(new Array(3).fill(null).map(() => new Manager("default")));
+  const [saveData, setSaveData] = useState<Manager[]>(new Array(3).fill(null).map(() => new Manager("")));
 
   const [textToShow, setTextToShow] = useState("Welcome to the game!");
   const [nameShow, setNameShow] = useState("");
@@ -39,6 +40,59 @@ const GamePage: React.FC = () => {
   const [charaToShow, setCharaToShow] = useState([emp]);
   const [backToShow, setBackToShow] = useState(emp);
   const [selectShow, setSelectShow] = useState([""]);
+
+
+  // コンポーネントがマウントされた時にローカルストレージからデータを読み込む
+  useEffect(() => {
+    // ローカルストレージからデータを取得
+    const savedJsonString = localStorage.getItem('userData');
+
+    if (savedJsonString) {
+      // 文字列を JSON オブジェクトに変換
+      const savedData = JSON.parse(savedJsonString);
+
+      var dialogues_0: Dialogue[] = [];
+      var dialogues_1: Dialogue[] = [];
+      var dialogues_2: Dialogue[] = [];
+
+      // 文字列化されたダイアログをクラスに戻して配列にする（セーブスロット1）
+      for (const data of savedData.Dialogue_0) {
+        const dialogue = new Dialogue(data.text, data.who, data.characters, data.whoIndex, data.back);
+        dialogues_0 = dialogues_0.concat(dialogue);
+        // console.log(dialogue.getText());
+      }
+
+      // 文字列化されたダイアログをクラスに戻して配列にする（セーブスロット1）
+      for (const data of savedData.Dialogue_1) {
+        const dialogue = new Dialogue(data.text, data.who, data.characters, data.whoIndex, data.back);
+        dialogues_1 = dialogues_1.concat(dialogue);
+      }
+
+      // 文字列化されたダイアログをクラスに戻して配列にする（セーブスロット1）
+      for (const data of savedData.Dialogue_2) {
+        const dialogue = new Dialogue(data.text, data.who, data.characters, data.whoIndex, data.back);
+        dialogues_2 = dialogues_2.concat(dialogue);
+      }
+
+      saveData[0] = new Manager(savedData.Name_0);
+      saveData[0].copyInstance(savedData.Level_0, savedData.LevelPlus_0, dialogues_0);
+      saveData[0].setSavedDateString(savedData.Date_0);
+      saveData[1] = new Manager(savedData.Name_1);
+      saveData[1].copyInstance(savedData.Level_1, savedData.LevelPlus_1, dialogues_1);
+      saveData[1].setSavedDateString(savedData.Date_1);
+      saveData[2] = new Manager(savedData.Name_2);
+      saveData[2].copyInstance(savedData.Level_2, savedData.LevelPlus_2, dialogues_2);
+      saveData[2].setSavedDateString(savedData.Date_2);
+      setSaveData(saveData);
+
+      // console.log("Level_0: " + savedData.Level_0);
+      // console.log("LevelPlus_0: " + savedData.LevelPlus_0);
+      // console.log("Dialogues_0: " + dialogues_0[23].getText());
+      
+    }
+  }, []); // 一度だけ実行されるため、依存リストに空の配列を渡す
+
+
 
 
   const handleConfirmationButtonClick = () => {
@@ -61,6 +115,7 @@ const GamePage: React.FC = () => {
   const loadCliked = () => {
     setShowLoad(true);
     setShowConfirmation(false);
+
   };
 
 
@@ -100,7 +155,7 @@ const GamePage: React.FC = () => {
     setShowSelection(myManager.isSelect());
     setShowName(myManager.isName());
     console.log("動作");
-  }, [myManager]);
+  }, [myManager, myManager.getName()]);
 
 
   return (
@@ -162,7 +217,7 @@ const GamePage: React.FC = () => {
             <Loadcom saveData={saveData} setShowLoad={setShowLoad} Load={setMyManager} />
           )}
 
-          
+
 
 
 

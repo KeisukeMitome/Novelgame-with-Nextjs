@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Manager from "../components/manager";
+import Dialogue from './dialogue';
 
 // キャラの配列を受け取る
 export interface saveProps {
@@ -31,6 +32,39 @@ const Characom: React.FC<saveProps> = (props) => {
 
         // 「セーブしました」を表示
         setSaved(true);
+
+
+        // jsonに書き出したい
+        const jsonData = {
+            // 保存するデータをここに入力
+            Name_0: props.saveData[0].getMyName(),
+            Level_0: props.saveData[0].getLevel(),
+            LevelPlus_0: props.saveData[0].getLevelPlus(),
+            Dialogue_0: props.saveData[0].getDialogues(),
+            Date_0: props.saveData[0].getSavedDate(),
+
+            Name_1: props.saveData[1].getMyName(),
+            Level_1: props.saveData[1].getLevel(),
+            LevelPlus_1: props.saveData[1].getLevelPlus(),
+            Dialogue_1: props.saveData[1].getDialogues(),
+            Date_1: props.saveData[1].getSavedDate(),
+
+            Name_2: props.saveData[2].getMyName(),
+            Level_2: props.saveData[2].getLevel(),
+            LevelPlus_2: props.saveData[2].getLevelPlus(),
+            Dialogue_2: props.saveData[2].getDialogues(),
+            Date_2: props.saveData[2].getSavedDate(),
+        };
+
+        // JSON オブジェクトを文字列に変換
+        const jsonString = JSON.stringify(jsonData);
+
+        // ローカルストレージに保存
+        localStorage.setItem('userData', jsonString);
+        console.log(jsonString);
+        console.log(jsonData.Date_0);
+
+
     };
 
     useEffect(() => {
@@ -50,11 +84,11 @@ const Characom: React.FC<saveProps> = (props) => {
                 <div>
                     <p>せーぶ</p>
 
-                    <button onClick={() => saveCliked(0)} >1. {props.saveData[0] && props.saveData[0].getText() !== null ? props.saveData[0].getText() : '空のスロット1'}</button>
+                    <button onClick={() => saveCliked(0)} >1. {props.saveData[0] && props.saveData[0].getMyName() !== "" ? props.saveData[0].getText() : '空のスロット'}</button>
                     <p className='savedDate'>{props.saveData[0].getSavedDate()}</p>
-                    <button onClick={() => saveCliked(1)} >2. {props.saveData[1] && props.saveData[1].getText() !== null ? props.saveData[1].getText() : '空のスロット2'}</button>
+                    <button onClick={() => saveCliked(1)} >2. {props.saveData[1] && props.saveData[1].getMyName() !== "" ? props.saveData[1].getText() : '空のスロット'}</button>
                     <p className='savedDate'>{props.saveData[1].getSavedDate()}</p>
-                    <button onClick={() => saveCliked(2)} >3. {props.saveData[2] && props.saveData[2].getText() !== null ? props.saveData[2].getText() : '空のスロット3'}</button>
+                    <button onClick={() => saveCliked(2)} >3. {props.saveData[2] && props.saveData[2].getMyName() !== "" ? props.saveData[2].getText() : '空のスロット'}</button>
                     <p className='savedDate'>{props.saveData[2].getSavedDate()}</p>
                 </div>
             )}
