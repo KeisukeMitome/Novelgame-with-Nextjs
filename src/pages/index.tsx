@@ -83,27 +83,39 @@ const Home: React.FC = () => {
                   {saveData[0].getMyName() !== "" && (
                     <>
                       <Link href={`/game?loadSlot=${encodeURIComponent(0)}`}>
-                        <button>1. {saveData[0] && saveData[0].getMyName() !== "" ? saveData[0].getText() : '空のスロット1'}</button>
+                        <div className="file_button">
+                          <div className="slot_number">1{saveData[0].getMyName() !== "" ? '. ' + saveData[0].getMyName() : ''}</div>
+                          <div className="savedDate">{saveData[0].getMyName() !== "" ? saveData[0].getSavedDate() : ''}</div>
+                          <div className="progress_number">進行度: {saveData[0].getLevel()}</div>
+                          <div className="pre_text">{saveData[0] && saveData[0].getMyName() !== "" ? saveData[0].getName() + saveData[0].getText() : '空のスロット'}</div>
+                        </div>
                       </Link>
-                      <p className='savedDate'>{saveData[0].getSavedDate()}</p>
                     </>
                   )}
 
                   {saveData[1].getMyName() !== "" && (
                     <>
                       <Link href={`/game?loadSlot=${encodeURIComponent(1)}`}>
-                        <button>2. {saveData[1] && saveData[1].getMyName() !== "" ? saveData[1].getText() : '空のスロット2'}</button>
+                        <div className="file_button">
+                          <div className="slot_number">2{saveData[1].getMyName() !== "" ? '. ' + saveData[1].getMyName() : ''}</div>
+                          <div className="savedDate">{saveData[1].getMyName() !== "" ? saveData[1].getSavedDate() : ''}</div>
+                          <div className="progress_number">進行度: {saveData[1].getLevel()}</div>
+                          <div className="pre_text">{saveData[1] && saveData[1].getMyName() !== "" ? saveData[1].getName() + saveData[1].getText() : '空のスロット'}</div>
+                        </div>
                       </Link>
-                      <p className='savedDate'>{saveData[1].getSavedDate()}</p>
                     </>
                   )}
 
                   {saveData[2].getMyName() !== "" && (
                     <>
                       <Link href={`/game?loadSlot=${encodeURIComponent(2)}`}>
-                        <button>3. {saveData[2] && saveData[2].getMyName() !== "" ? saveData[2].getText() : '空のスロット3'}</button>
+                        <div className="file_button">
+                          <div className="slot_number">3{saveData[2].getMyName() !== "" ? '. ' + saveData[2].getMyName() : ''}</div>
+                          <div className="savedDate">{saveData[2].getMyName() !== "" ? saveData[2].getSavedDate() : ''}</div>
+                          <div className="progress_number">進行度: {saveData[2].getLevel()}</div>
+                          <div className="pre_text">{saveData[2] && saveData[2].getMyName() !== "" ? saveData[2].getName() + saveData[2].getText() : '空のスロット'}</div>
+                        </div>
                       </Link>
-                      <p className='savedDate'>{saveData[2].getSavedDate()}</p>
                     </>
                   )}
 

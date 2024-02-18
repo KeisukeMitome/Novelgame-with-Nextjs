@@ -84,12 +84,27 @@ const Characom: React.FC<saveProps> = (props) => {
                 <div>
                     <p>せーぶ</p>
 
-                    <button onClick={() => saveCliked(0)} >1. {props.saveData[0] && props.saveData[0].getMyName() !== "" ? props.saveData[0].getText() : '空のスロット'}</button>
-                    <p className='savedDate'>{props.saveData[0].getSavedDate()}</p>
-                    <button onClick={() => saveCliked(1)} >2. {props.saveData[1] && props.saveData[1].getMyName() !== "" ? props.saveData[1].getText() : '空のスロット'}</button>
-                    <p className='savedDate'>{props.saveData[1].getSavedDate()}</p>
-                    <button onClick={() => saveCliked(2)} >3. {props.saveData[2] && props.saveData[2].getMyName() !== "" ? props.saveData[2].getText() : '空のスロット'}</button>
-                    <p className='savedDate'>{props.saveData[2].getSavedDate()}</p>
+                    <div className="file_button" onClick={() => saveCliked(0)} >
+                        <div className="slot_number">1{props.saveData[0].getMyName() !== "" ? '. ' + props.saveData[0].getMyName() : ''}</div>
+                        <div className="savedDate">{props.saveData[0].getMyName() !== "" ? props.saveData[0].getSavedDate() : ''}</div>
+                        <div className="progress_number">進行度: {props.saveData[0].getLevel()}</div>
+                        <div className="pre_text">{props.saveData[0] && props.saveData[0].getMyName() !== "" ? props.saveData[0].getName() + props.saveData[0].getText() : '空のスロット'}</div>
+                    </div>
+
+                    <div className="file_button" onClick={() => saveCliked(1)} >
+                        <div className="slot_number">2{props.saveData[1].getMyName() !== "" ? '. ' + props.saveData[1].getMyName() : ''}</div>
+                        <div className="savedDate">{props.saveData[1].getMyName() !== "" ? props.saveData[1].getSavedDate() : ''}</div>
+                        <div className="progress_number">進行度: {props.saveData[1].getLevel()}</div>
+                        <div className="pre_text">{props.saveData[1] && props.saveData[1].getMyName() !== "" ? props.saveData[1].getName() + props.saveData[1].getText() : '空のスロット'}</div>
+                    </div>
+
+                    <div className="file_button" onClick={() => saveCliked(2)} >
+                        <div className="slot_number">3{props.saveData[2].getMyName() !== "" ? '. ' + props.saveData[2].getMyName() : ''}</div>
+                        <div className="savedDate">{props.saveData[2].getMyName() !== "" ? props.saveData[2].getSavedDate() : ''}</div>
+                        <div className="progress_number">進行度: {props.saveData[2].getLevel()}</div>
+                        <div className="pre_text">{props.saveData[2] && props.saveData[2].getMyName() !== "" ? props.saveData[2].getName() + props.saveData[2].getText() : '空のスロット'}</div>
+                    </div>
+                    
                 </div>
             )}
 

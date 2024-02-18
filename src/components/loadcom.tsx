@@ -19,15 +19,15 @@ const Characom: React.FC<loadProps> = (props) => {
 
     const loadCliked = (choiceIndex: number) => {
 
-        if(props.saveData[choiceIndex].getMyName() != ""){
+        if (props.saveData[choiceIndex].getMyName() != "") {
 
             const newCopyManagerInstance = new Manager(props.saveData[choiceIndex].getMyName());
             newCopyManagerInstance.copyInstance(props.saveData[choiceIndex].getLevel(), props.saveData[choiceIndex].getLevelPlus(), props.saveData[choiceIndex].getDialogues());
             props.Load(newCopyManagerInstance);
-    
+
             // props.setShowLoad(false);
             setLoaded(true); // ロードしましたを表示
-            
+
         }
     };
 
@@ -42,12 +42,26 @@ const Characom: React.FC<loadProps> = (props) => {
                 <div>
                     <p>ろーど</p>
 
-                    <button onClick={() => loadCliked(0)} >1. {props.saveData[0] && props.saveData[0].getMyName() !== "" ? props.saveData[0].getText() : '空のスロット1'}</button>
-                    <p className='savedDate'>{props.saveData[0].getSavedDate()}</p>
-                    <button onClick={() => loadCliked(1)} >2. {props.saveData[1] && props.saveData[1].getMyName() !== "" ? props.saveData[1].getText() : '空のスロット2'}</button>
-                    <p className='savedDate'>{props.saveData[1].getSavedDate()}</p>
-                    <button onClick={() => loadCliked(2)} >3. {props.saveData[2] && props.saveData[2].getMyName() !== "" ? props.saveData[2].getText() : '空のスロット3'}</button>
-                    <p className='savedDate'>{props.saveData[2].getSavedDate()}</p>
+                    <div className="file_button" onClick={() => loadCliked(0)} >
+                        <div className="slot_number">1{props.saveData[0].getMyName() !== "" ? '. ' + props.saveData[0].getMyName() : ''}</div>
+                        <div className="savedDate">{props.saveData[0].getMyName() !== "" ? props.saveData[0].getSavedDate() : ''}</div>
+                        <div className="progress_number">進行度: {props.saveData[0].getLevel()}</div>
+                        <div className="pre_text">{props.saveData[0] && props.saveData[0].getMyName() !== "" ? props.saveData[0].getName() + props.saveData[0].getText() : '空のスロット'}</div>
+                    </div>
+
+                    <div className="file_button" onClick={() => loadCliked(1)} >
+                        <div className="slot_number">2{props.saveData[1].getMyName() !== "" ? '. ' + props.saveData[1].getMyName() : ''}</div>
+                        <div className="savedDate">{props.saveData[1].getMyName() !== "" ? props.saveData[1].getSavedDate() : ''}</div>
+                        <div className="progress_number">進行度: {props.saveData[1].getLevel()}</div>
+                        <div className="pre_text">{props.saveData[1] && props.saveData[1].getMyName() !== "" ? props.saveData[1].getName() + props.saveData[1].getText() : '空のスロット'}</div>
+                    </div>
+
+                    <div className="file_button" onClick={() => loadCliked(2)} >
+                        <div className="slot_number">3{props.saveData[2].getMyName() !== "" ? '. ' + props.saveData[2].getMyName() : ''}</div>
+                        <div className="savedDate">{props.saveData[2].getMyName() !== "" ? props.saveData[2].getSavedDate() : ''}</div>
+                        <div className="progress_number">進行度: {props.saveData[2].getLevel()}</div>
+                        <div className="pre_text">{props.saveData[2] && props.saveData[2].getMyName() !== "" ? props.saveData[2].getName() + props.saveData[2].getText() : '空のスロット'}</div>
+                    </div>
                 </div>
             )}
 

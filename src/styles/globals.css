@@ -83,6 +83,45 @@
     background-color: #ff8181;
 }
 
+.file_button {
+    background-color: #4697da;
+    color: white;
+    padding: 7px 7px;
+    text-align: left;
+    text-decoration: none;
+    line-height: 1.2; /* 行の高さを1.5倍に設定 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* 影の効果 */
+    display: inline-block;
+    margin: 9px 0px;
+    cursor: pointer;
+    border-radius: 15px;
+    width: 400px;
+}
+.file_button:hover {
+    background-color: #b3fff4;
+}
+.slot_number {
+    font-size: 15px;
+}
+.progress_number {
+    font-size: 22px;
+    text-align: center;
+}
+.pre_text {
+    font-size: 12px;
+    padding: 12px 2px;
+    border-bottom-left-radius: 12px; /* カードの左上の角を丸める */
+    border-bottom-right-radius: 12px; /* カードの右上の角を丸める */
+    background-color: #ffffff;
+    color: #4697da;
+    text-align: center;
+}
+/* セーブされた日時 */
+.savedDate {
+    font-size: 8px;
+    text-align: right;
+}
+
 .link {
     text-decoration: none;
 }
@@ -246,12 +285,6 @@
     /* 他のスタイルも必要に応じて追加 */
 }
 
-/* セーブされた日時 */
-.savedDate {
-    margin-top: -2vh;
-    font-size: 14px;
-}
-
 
 /* 背景を表示 title */
 .image_back_title {
@@ -368,6 +401,7 @@
 .choice-container:hover {
     background-color: rgba(232, 255, 252, 0.9);
 }
+
 
 
 /* 
