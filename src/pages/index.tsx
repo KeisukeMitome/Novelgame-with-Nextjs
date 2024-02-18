@@ -119,16 +119,16 @@ const Home: React.FC = () => {
                     </>
                   )}
 
-                  <button className='menu_button' onClick={() => setShowLoad(false)}>とじる</button>
+                  <div className='menu_button' onClick={() => setShowLoad(false)}>とじる</div>
                 </div>
               </div>
             )}
 
             {/* <Link className='menu_button' href="/file_select">つづける</Link> */}
-            <button className='menu_button' onClick={() => loadButtonCliked()}>つづける</button>
-            <button className='menu_button' onClick={() => window.location.href = "/new_game"}>にゅうげーむ</button>
-            <button className='menu_button' onClick={() => window.location.href = "/gallery"}>ぎゃらりー</button>
-            <button className='menu_button' onClick={() => window.location.href = "/option"}>おぷしょん</button>
+            <div className='menu_button' onClick={() => loadButtonCliked()}>つづける</div>
+            <div className='menu_button' onClick={() => window.location.href = "/new_game"}>にゅうげーむ</div>
+            <div className='menu_button' onClick={() => window.location.href = "/gallery"}>ぎゃらりー</div>
+            <div className='menu_button' onClick={() => window.location.href = "/option"}>おぷしょん</div>
           </div>
 
         </div>

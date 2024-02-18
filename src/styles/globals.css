@@ -5,37 +5,42 @@
 
 
 .menu_button {
-    background-color: #4CAF50;
+    /* background-color: #4CAF50; */
+    background: linear-gradient(rgba(38, 190, 91, 0.9) 0%, rgba(32, 178, 83, 0.9)100%);
     color: white;
     /* outline: 2px solid black; */
-    padding: 0px 20px;
-    border: 2px solid black;
+    padding: 2px 20px;
     text-align: center;
-    line-height: 40px; /* 
-    heightとそろえる */
+    /* line-height: 40px; heightとそろえる */
     text-decoration: none;
+    display: inline-block;
     font-size: 24px;
-    margin: 4px 2px;
+    margin: 6px 2px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
     width: 270px;
+    box-shadow: 0px 4px 0px rgb(20, 127, 90); /* 影の効果 */
 }
 .menu_button:hover {
-    background-color: #51eec7;
+    /* background-color: #51eec7; */
+    background: linear-gradient( rgb(63, 232, 209) 0%, rgb(60, 225, 203)100%);
+    box-shadow: 0px 2px 0px rgb(20, 127, 90); /* 影の効果 */
+    transform: translateY(2px); /* 下に 10px 移動 */
 }
 
 
 .select_button {
-    background-color: #4CAF50;
+    /* background-color: #4CAF50; */
+    background: linear-gradient(rgba(38, 190, 91, 0.9) 0%, rgba(32, 178, 83, 0.9)100%);
     color: white;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 28px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 25px;
     display: flex;
     /* Flexbox を有効にする */
     align-items: center;
@@ -43,10 +48,13 @@
     justify-content: center;
     /* 水平方向に中央揃え */
     width: 120px;
-    height: 40px;
+    box-shadow: 0px 4px 0px rgb(20, 127, 90); /* 影の効果 */
 }
 .select_button:hover {
-    background-color: #51eec7;
+    /* background-color: #51eec7; */
+    background: linear-gradient( rgb(63, 232, 209) 0%, rgb(60, 225, 203)100%);
+    box-shadow: 0px 2px 0px rgb(20, 127, 90); /* 影の効果 */
+    transform: translateY(2px); /* 下に 10px 移動 */
 }
 
 .yes_button {
@@ -84,13 +92,14 @@
 }
 
 .file_button {
-    background-color: #4697da;
+    /* background-color: #4697da; */
+    background: linear-gradient( rgb(111, 218, 230) 0%, rgb(60, 139, 208)120%);
     color: white;
     padding: 7px 7px;
     text-align: left;
     text-decoration: none;
     line-height: 1.2; /* 行の高さを1.5倍に設定 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* 影の効果 */
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5); /* 影の効果 */
     display: inline-block;
     margin: 9px 0px;
     cursor: pointer;
@@ -98,7 +107,8 @@
     width: 400px;
 }
 .file_button:hover {
-    background-color: #b3fff4;
+    /* background-color: #b3fff4; */
+    background: linear-gradient( rgb(140, 240, 251) 0%, rgb(80, 164, 237)120%);
 }
 .slot_number {
     font-size: 15px;
@@ -351,25 +361,17 @@
 }
 
 .confirmation_modal {
-    background-color: #fdffdc;
+    background-color: rgba(255, 252, 218, 1);
     color: rgb(0, 114, 74);
-    border: 2px solid rgb(0, 114, 74);
     padding: 10px 20px;
     text-align: center;
-    line-height: 40px;
+    /* line-height: 40px; */
     /* heightとそろえる */
     text-decoration: none;
-    display: inline-block;
     font-size: 24px;
     margin: 4px 2px;
-    border-radius: 5px;
-    display: flex;
-    /* Flexbox を有効にする */
-    align-items: center;
-    /* 垂直方向に中央揃え */
-    justify-content: center;
-    /* 水平方向に中央揃え */
-    display: inline-block;
+    border-radius: 25px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5); /* 影の効果 */
 }
 
 

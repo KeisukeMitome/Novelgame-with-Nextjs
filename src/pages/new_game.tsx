@@ -37,8 +37,7 @@ const NewGame: React.FC = () => {
       <div className='overlay-base'>
         <div className='image_back_new_game'>
           <div className="center-text">
-            <h1 className='h1_1'>にゅうげーむ🎮</h1>
-            <label>あなたのなまえは？</label>
+            <h1 className='h1_1'>あなたのなまえは？</h1>
             <input
               disabled={showAlertS || showAlertL || showConfirmation}
               className="input_text"
@@ -51,9 +50,9 @@ const NewGame: React.FC = () => {
               required
             />
             <br />
-            <button type="button" className="select_button" onClick={handleConfirmationButtonClick}>
+            <div className="select_button" onClick={handleConfirmationButtonClick}>
               けってい
-            </button>
+            </div>
 
             {showConfirmation && (
               <div className='load'>
@@ -85,8 +84,7 @@ const NewGame: React.FC = () => {
               </div>
             )}
 
-
-
+            <br/>
             <Link className='menu_button' href="/..">たいとるにもどる</Link>
           </div>
         </div>

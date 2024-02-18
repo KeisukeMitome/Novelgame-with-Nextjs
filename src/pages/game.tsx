@@ -216,36 +216,27 @@ const GamePage: React.FC = () => {
 
 
           <div className='menu'>
-            <button type="button" className="select_button" onClick={handleConfirmationButtonClick}>
+            <div className="select_button" onClick={handleConfirmationButtonClick}>
               めにゅー
-            </button>
+            </div>
 
             {showConfirmation && (
               <div className="confirmation_modal">
                 <p>めにゅー</p>
 
-                <div>
-                  <button className='menu_button' onClick={() => saveCliked()}>せーぶ</button>
-                </div>
-                <div>
-                  <button className='menu_button' onClick={() => loadCliked()}>ろーど</button>
-                </div>
-                
-                <div>
-                  <Link href="/option">
-                    <button className='menu_button'>おぷしょん</button>
-                  </Link>
-                </div>
-
-                <div>
-                  <Link href="/..">
-                    <button className='menu_button'>たいとるにもどる</button>
-                  </Link>
-                </div>
-
-                <div>
-                  <button className='menu_button' onClick={() => setShowConfirmation(false)}>めにゅーをとじる</button>
-                </div>
+                <div className='menu_button' onClick={() => saveCliked()}>せーぶ</div>
+                <br/>
+                <div className='menu_button' onClick={() => loadCliked()}>ろーど</div>
+                <br/>
+                <Link href="/option">
+                  <div className='menu_button'>おぷしょん</div>
+                </Link>
+                <br/>
+                <Link href="/..">
+                  <div className='menu_button'>たいとるにもどる</div>
+                </Link>
+                <br/>
+                <div className='menu_button' onClick={() => setShowConfirmation(false)}>めにゅーをとじる</div>
 
               </div>
             )}

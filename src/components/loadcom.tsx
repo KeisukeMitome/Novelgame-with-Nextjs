@@ -66,7 +66,7 @@ const Characom: React.FC<loadProps> = (props) => {
             )}
 
 
-            <button className='menu_button' onClick={() => props.setShowLoad(false)}>とじる</button>
+            <div className='menu_button' onClick={() => props.setShowLoad(false)}>とじる</div>
         </div>
     </div>
 

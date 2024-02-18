@@ -108,7 +108,7 @@ const Characom: React.FC<saveProps> = (props) => {
                 </div>
             )}
 
-            <button className='menu_button' onClick={() => props.setShowSave(false)}>とじる</button>
+            <div className='menu_button' onClick={() => props.setShowSave(false)}>とじる</div>
         </div>
     </div>
 
