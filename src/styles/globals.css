@@ -8,30 +8,17 @@
     background-color: #4CAF50;
     color: white;
     /* outline: 2px solid black; */
+    padding: 0px 20px;
     border: 2px solid black;
-    padding: 10px 20px;
     text-align: center;
-    line-height: 40px;
-    /* heightとそろえる */
+    line-height: 40px; /* 
+    heightとそろえる */
     text-decoration: none;
-    display: inline-block;
     font-size: 24px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    display: block;
-    /* 改行 */
-
-    display: flex;
-    /* Flexbox を有効にする */
-    align-items: center;
-    /* 垂直方向に中央揃え */
-    justify-content: center;
-    /* 水平方向に中央揃え */
-
-    /* ボタンの横幅と縦幅を指定 */
     width: 270px;
-    height: 40px;
 }
 .menu_button:hover {
     background-color: #51eec7;

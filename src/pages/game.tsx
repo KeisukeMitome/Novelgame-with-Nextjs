@@ -20,6 +20,7 @@ import Manager from "../components/manager";
 const GamePage: React.FC = () => {
   const router = useRouter();
   const { name } = router.query;
+  const { loadSlot } = router.query;
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showSelection, setShowSelection] = useState(false); // 選択肢表示・非表示
   const [showText, setShowText] = useState(true); // テキスト表示・非表示
@@ -44,6 +45,8 @@ const GamePage: React.FC = () => {
 
   // コンポーネントがマウントされた時にローカルストレージからデータを読み込む
   useEffect(() => {
+
+    console.log("最初　名前 :" + name + "  ロードスロット :" + loadSlot);////////////////////////////////////////////////////////////
     // ローカルストレージからデータを取得
     const savedJsonString = localStorage.getItem('userData');
 
@@ -88,7 +91,31 @@ const GamePage: React.FC = () => {
       // console.log("Level_0: " + savedData.Level_0);
       // console.log("LevelPlus_0: " + savedData.LevelPlus_0);
       // console.log("Dialogues_0: " + dialogues_0[23].getText());
-      
+
+      // 「つづける」を押された場合のロード
+      switch (loadSlot) {
+        case "0":
+          const data0 = new Manager(saveData[0].getMyName());
+          data0.copyInstance(saveData[0].getLevel(), saveData[0].getLevelPlus(), saveData[0].getDialogues());
+          setMyManager(data0);
+          break;
+
+        case "1":
+          const data1 = new Manager(saveData[1].getMyName());
+          data1.copyInstance(saveData[1].getLevel(), saveData[1].getLevelPlus(), saveData[1].getDialogues());
+          setMyManager(data1);
+          break;
+
+        case "2":
+          const data2 = new Manager(saveData[2].getMyName());
+          data2.copyInstance(saveData[2].getLevel(), saveData[2].getLevelPlus(), saveData[2].getDialogues());
+          setMyManager(data2);
+          break;
+
+        default:
+          console.log("新規データ");
+      }
+
     }
   }, []); // 一度だけ実行されるため、依存リストに空の配列を渡す
 
@@ -154,6 +181,8 @@ const GamePage: React.FC = () => {
   useEffect(() => {
     setShowSelection(myManager.isSelect());
     setShowName(myManager.isName());
+    console.log("名前 :" + name + "  ロードスロット :" + loadSlot);////////////////////////////////////////////////////////////
+
     console.log("動作");
   }, [myManager, myManager.getName()]);
 
@@ -194,15 +223,30 @@ const GamePage: React.FC = () => {
             {showConfirmation && (
               <div className="confirmation_modal">
                 <p>めにゅー</p>
-                <button className='menu_button' onClick={() => saveCliked()}>せーぶ</button>
-                <button className='menu_button' onClick={() => loadCliked()}>ろーど</button>
-                <Link href="/option">
-                  <button className='menu_button'>おぷしょん</button>
-                </Link>
-                <Link href="/..">
-                  <button className='menu_button'>たいとるにもどる</button>
-                </Link>
-                <button className='menu_button' onClick={() => setShowConfirmation(false)}>めにゅーをとじる</button>
+
+                <div>
+                  <button className='menu_button' onClick={() => saveCliked()}>せーぶ</button>
+                </div>
+                <div>
+                  <button className='menu_button' onClick={() => loadCliked()}>ろーど</button>
+                </div>
+                
+                <div>
+                  <Link href="/option">
+                    <button className='menu_button'>おぷしょん</button>
+                  </Link>
+                </div>
+
+                <div>
+                  <Link href="/..">
+                    <button className='menu_button'>たいとるにもどる</button>
+                  </Link>
+                </div>
+
+                <div>
+                  <button className='menu_button' onClick={() => setShowConfirmation(false)}>めにゅーをとじる</button>
+                </div>
+
               </div>
             )}
           </div>
