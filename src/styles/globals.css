@@ -26,6 +26,7 @@
     background: linear-gradient( rgb(63, 232, 209) 0%, rgb(60, 225, 203)100%);
     box-shadow: 0px 2px 0px rgb(20, 127, 90); /* 影の効果 */
     transform: translateY(2px); /* 下に 10px 移動 */
+    z-index: -1;
 }
 
 
@@ -58,7 +59,7 @@
 }
 
 .yes_button {
-    background-color: #18e018;
+    background: linear-gradient(rgb(92, 222, 66) 0%, rgb(87, 217, 61)100%);
     color: white;
     padding: 5px 20px;
     text-align: center;
@@ -67,15 +68,18 @@
     font-size: 18px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 25px;
     width: 120px;
+    box-shadow: 0px 4px 0px rgb(30, 161, 78); /* 影の効果 */
 }
 .yes_button:hover {
-    background-color: #55f6de;
+    background: linear-gradient(rgb(134, 241, 122) 0%, rgb(134, 241, 122)100%);
+    box-shadow: 0px 2px 0px rgb(30, 161, 78); /* 影の効果 */
+    transform: translateY(2px); /* 下に 10px 移動 */
 }
 
 .no_button {
-    background-color: #f24343;
+    background: linear-gradient(rgb(235, 77, 77) 0%, rgb(211, 56, 56)100%);
     color: white;
     padding: 5px 20px;
     text-align: center;
@@ -84,11 +88,14 @@
     font-size: 18px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 25px;
     width: 120px;
+    box-shadow: 0px 4px 0px rgb(105, 9, 9); /* 影の効果 */
 }
 .no_button:hover {
-    background-color: #ff8181;
+    background: linear-gradient(rgb(255, 152, 152) 0%, rgb(255, 152, 152)100%);
+    box-shadow: 0px 2px 0px rgb(105, 9, 9); /* 影の効果 */
+    transform: translateY(2px); /* 下に 10px 移動 */
 }
 
 .file_button {
@@ -226,8 +233,11 @@
 
 /* セリフの名札 */
 .main-text-name {
-    background-color: rgb(0, 85, 61);
+    background-color: rgba(219, 255, 244, 0.8);
     color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px #146049;
+    text-shadow: 1px 1px 2px #146049;
+    font-weight: bold;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -257,18 +267,20 @@
 
 /* セリフ（左寄せ） */
 .main-text {
-    background-color: rgba(225, 255, 226, 0.7);
+    background-color: rgba(153, 235, 200, 0.7);
     /* 0.7は透明度を示します（0から1の範囲） */
     ;
     color: rgb(255, 255, 255);
-    -webkit-text-stroke: 1px #000;
+    -webkit-text-stroke: 0.8px #000000;
+    text-shadow: 0.8px 0.8px 2px #000000;
+    font-weight: bold;
     /* 輪郭の幅と色 */
-    border: 2px solid rgb(0, 85, 61);
+    border: 3px solid rgb(219, 255, 244);
     padding: 10px 20px;
     text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 2vw;
+    font-size: 1.7vw;
     margin: 4px 2px;
     border-radius: 15px;
     cursor: pointer;
@@ -388,12 +400,15 @@
 
 /* 選択肢 */
 .choice-container {
-    background-color: rgba(225, 255, 226, 0.7);
+    background-color: rgba(153, 235, 200, 0.7);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
-    -webkit-text-stroke: 1px #000;
+    -webkit-text-stroke: 1px #000000;
+    text-shadow: 0.8px 0.8px 2px #000000;
+    font-weight: bold;
     text-align: center;
     font-size: 2vw;
-    border: 2px solid rgb(0, 85, 61);
+    border: 3px solid rgb(219, 255, 244);
     cursor: pointer;
     padding: 10px; /* 選択肢と枠線の間に余白を設定できます */
     margin: 10px; /* 選択肢の間に余白を設定できます */

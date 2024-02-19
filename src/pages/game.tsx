@@ -124,7 +124,10 @@ const GamePage: React.FC = () => {
 
   const handleConfirmationButtonClick = () => {
     // ここで確認ウィンドウを表示するための処理を追加
-    setShowConfirmation(true);
+    if (showConfirmation)
+      setShowConfirmation(false);
+    else
+      setShowConfirmation(true);
   };
 
 
@@ -160,6 +163,7 @@ const GamePage: React.FC = () => {
     setShowSelection(myManager.isSelect());
     setShowName(myManager.isName());
   };
+
 
   // choiceInd の値が変更されたときに実行される関数
   useEffect(() => {
@@ -217,26 +221,24 @@ const GamePage: React.FC = () => {
 
           <div className='menu'>
             <div className="select_button" onClick={handleConfirmationButtonClick}>
-              めにゅー
+              メニュー
             </div>
 
             {showConfirmation && (
               <div className="confirmation_modal">
-                <p>めにゅー</p>
-
-                <div className='menu_button' onClick={() => saveCliked()}>せーぶ</div>
-                <br/>
-                <div className='menu_button' onClick={() => loadCliked()}>ろーど</div>
-                <br/>
+                <div className='menu_button' onClick={() => saveCliked()}>セーブ</div>
+                <br />
+                <div className='menu_button' onClick={() => loadCliked()}>ロード</div>
+                <br />
                 <Link href="/option">
-                  <div className='menu_button'>おぷしょん</div>
+                  <div className='menu_button'>オプション</div>
                 </Link>
-                <br/>
+                <br />
                 <Link href="/..">
-                  <div className='menu_button'>たいとるにもどる</div>
+                  <div className='menu_button'>タイトルに戻る</div>
                 </Link>
-                <br/>
-                <div className='menu_button' onClick={() => setShowConfirmation(false)}>めにゅーをとじる</div>
+                <br />
+                <div className='menu_button' onClick={() => setShowConfirmation(false)}>メニューを閉じる</div>
 
               </div>
             )}

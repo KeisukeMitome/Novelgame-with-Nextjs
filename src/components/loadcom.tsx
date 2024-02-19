@@ -40,7 +40,7 @@ const Characom: React.FC<loadProps> = (props) => {
 
             {!loaded && (
                 <div>
-                    <p>ろーど</p>
+                    <p>ロード</p>
 
                     <div className="file_button" onClick={() => loadCliked(0)} >
                         <div className="slot_number">1{props.saveData[0].getMyName() !== "" ? '. ' + props.saveData[0].getMyName() : ''}</div>
@@ -66,7 +66,7 @@ const Characom: React.FC<loadProps> = (props) => {
             )}
 
 
-            <div className='menu_button' onClick={() => props.setShowLoad(false)}>とじる</div>
+            <div className='menu_button' onClick={() => props.setShowLoad(false)}>閉じる</div>
         </div>
     </div>
 

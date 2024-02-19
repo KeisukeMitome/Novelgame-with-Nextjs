@@ -59,9 +59,9 @@ const NewGame: React.FC = () => {
                 <div className="confirmation_modal">
                   <p>{name} でよろしいですか？</p>
                   <Link className='link' href={`/game?name=${encodeURIComponent(name)}`}>
-                    <button className='yes_button'>はい</button>
+                    <div className='yes_button'>はい</div>
                   </Link>
-                  <button className='no_button' onClick={() => setShowConfirmation(false)}>いいえ</button>
+                  <div className='no_button' onClick={() => setShowConfirmation(false)}>いいえ</div>
                 </div>
               </div>
             )}
@@ -70,7 +70,7 @@ const NewGame: React.FC = () => {
               <div className='load'>
                 <div className="confirmation_modal">
                   <p>名前を入力してください！</p>
-                  <button className='menu_button' onClick={() => setShowAlertS(false)}>とじる</button>
+                  <div className='menu_button' onClick={() => setShowAlertS(false)}>とじる</div>
                 </div>
               </div>
             )}
@@ -79,7 +79,7 @@ const NewGame: React.FC = () => {
                 <div className="confirmation_modal">
                   <p>名前が長すぎます！</p>
                   <p>10文字以下にしてください</p>
-                  <button className='menu_button' onClick={() => setShowAlertL(false)}>とじる</button>
+                  <div className='menu_button' onClick={() => setShowAlertL(false)}>とじる</div>
                 </div>
               </div>
             )}

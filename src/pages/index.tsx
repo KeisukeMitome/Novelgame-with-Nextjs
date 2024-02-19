@@ -78,7 +78,7 @@ const Home: React.FC = () => {
             {showLoad && (
               <div className='load'>
                 <div className="confirmation_modal">
-                  <p>ろーど</p>
+                  <p>ロード</p>
 
                   {saveData[0].getMyName() !== "" && (
                     <>
@@ -125,10 +125,10 @@ const Home: React.FC = () => {
             )}
 
             {/* <Link className='menu_button' href="/file_select">つづける</Link> */}
-            <div className='menu_button' onClick={() => loadButtonCliked()}>つづける</div>
-            <div className='menu_button' onClick={() => window.location.href = "/new_game"}>にゅうげーむ</div>
-            <div className='menu_button' onClick={() => window.location.href = "/gallery"}>ぎゃらりー</div>
-            <div className='menu_button' onClick={() => window.location.href = "/option"}>おぷしょん</div>
+            <div className='menu_button' onClick={() => loadButtonCliked()}>続きから</div>
+            <div className='menu_button' onClick={() => window.location.href = "/new_game"}>はじめから</div>
+            <div className='menu_button' onClick={() => window.location.href = "/gallery"}>ギャラリー</div>
+            <div className='menu_button' onClick={() => window.location.href = "/option"}>オプション</div>
           </div>
 
         </div>

@@ -82,7 +82,7 @@ const Characom: React.FC<saveProps> = (props) => {
 
             {!saved && (
                 <div>
-                    <p>せーぶ</p>
+                    <p>セーブ</p>
 
                     <div className="file_button" onClick={() => saveCliked(0)} >
                         <div className="slot_number">1{props.saveData[0].getMyName() !== "" ? '. ' + props.saveData[0].getMyName() : ''}</div>
@@ -108,7 +108,7 @@ const Characom: React.FC<saveProps> = (props) => {
                 </div>
             )}
 
-            <div className='menu_button' onClick={() => props.setShowSave(false)}>とじる</div>
+            <div className='menu_button' onClick={() => props.setShowSave(false)}>閉じる</div>
         </div>
     </div>
 
