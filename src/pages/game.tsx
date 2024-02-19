@@ -230,7 +230,7 @@ const GamePage: React.FC = () => {
         <div className="center-text">
 
           {showText && (
-            <p onClick={textClick} className='main-text' style={{ fontSize: `${fontSize * 0.1}vw` }}>
+            <p onClick={()=>textClick()} className='main-text' style={{ fontSize: `${fontSize * 0.1}vw` }}>
               {myManager.getText()}
             </p>
           )}

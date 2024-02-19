@@ -37,21 +37,21 @@ const NewGame: React.FC = () => {
       <div className='overlay-base'>
         <div className='image_back_new_game'>
           <div className="center-text">
-            <h1 className='h1_1'>あなたのなまえは？</h1>
+            <h1 className='h1_1'>あなたの名前は？</h1>
             <input
               disabled={showAlertS || showAlertL || showConfirmation}
               className="input_text"
               type="text"
               id="name"
               name="name"
-              placeholder="なまえをにゅうりょくしてください"
+              placeholder="名前を入力してください"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
             />
             <br />
             <div className="select_button" onClick={handleConfirmationButtonClick}>
-              けってい
+              決定
             </div>
 
             {showConfirmation && (
@@ -70,7 +70,7 @@ const NewGame: React.FC = () => {
               <div className='load'>
                 <div className="confirmation_modal">
                   <p>名前を入力してください！</p>
-                  <div className='menu_button' onClick={() => setShowAlertS(false)}>とじる</div>
+                  <div className='menu_button' onClick={() => setShowAlertS(false)}>閉じる</div>
                 </div>
               </div>
             )}
@@ -79,13 +79,13 @@ const NewGame: React.FC = () => {
                 <div className="confirmation_modal">
                   <p>名前が長すぎます！</p>
                   <p>10文字以下にしてください</p>
-                  <div className='menu_button' onClick={() => setShowAlertL(false)}>とじる</div>
+                  <div className='menu_button' onClick={() => setShowAlertL(false)}>閉じる</div>
                 </div>
               </div>
             )}
 
             <br/>
-            <Link className='menu_button' href="/..">たいとるにもどる</Link>
+            <Link className='menu_button' href="/..">タイトルに戻る</Link>
           </div>
         </div>
       </div>

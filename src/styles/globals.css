@@ -290,6 +290,30 @@
     height: 15vh;
 }
 
+.main-text-sample {
+    background-color: rgba(153, 235, 200, 0.7);
+    /* 0.7は透明度を示します（0から1の範囲） */
+    ;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.8px #000000;
+    text-shadow: 0.8px 0.8px 2px #000000;
+    font-weight: bold;
+    /* 輪郭の幅と色 */
+    border: 3px solid rgb(219, 255, 244);
+    padding: 10px 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.7vw;
+    margin: 4px 2px;
+    border-radius: 15px;
+    cursor: pointer;
+
+    /* ボタンの横幅と縦幅を指定 */
+    width: 25vw;
+    height: 10vh;
+}
+
 /* メニュー右上設置 */
 .menu {
     position: fixed;

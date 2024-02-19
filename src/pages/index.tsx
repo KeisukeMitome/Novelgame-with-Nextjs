@@ -122,7 +122,7 @@ const Home: React.FC = () => {
                     </>
                   )}
 
-                  <div className='menu_button' onClick={() => setShowLoad(false)}>とじる</div>
+                  <div className='menu_button' onClick={() => setShowLoad(false)}>閉じる</div>
                 </div>
               </div>
             )}

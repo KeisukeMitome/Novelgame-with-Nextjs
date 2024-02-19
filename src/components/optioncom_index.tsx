@@ -50,7 +50,7 @@ const OptioncomIndex: React.FC<optionProps> = (props) => {
             />
             <label style={{ fontSize: `2.2vw` }}>大</label>
             <br />
-            <p style={{ fontSize: `${fontSize * 0.1}vw` }}>文字の大きさサンプル</p>
+            <p style={{ fontSize: `${fontSize * 0.1}vw` }} className='main-text-sample'>文字の大きさサンプル</p>
             <div className='menu_button' onClick={() => { props.setShowOption(false), close_clicked() }}>閉じる</div>
         </div>
     </div>
