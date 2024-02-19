@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Loadcom from "../components/loadcom";
+import OptioncomIndex from "@/components/optioncom_index";
+
 import Manager from "../components/manager";
 import Dialogue from "../components/dialogue";
 
@@ -11,6 +13,7 @@ const Home: React.FC = () => {
   // 管理するクラス 長さは3に指定
   const [saveData, setSaveData] = useState<Manager[]>(new Array(3).fill(null).map(() => new Manager("")));
   const [showLoad, setShowLoad] = useState(false); // ロード画面表示・非表示
+  const [showOption, setShowOption] = useState(false); // オプション画面表示・非表示
 
   const loadButtonCliked = () => {
     setShowLoad(true);
@@ -128,15 +131,18 @@ const Home: React.FC = () => {
             <div className='menu_button' onClick={() => loadButtonCliked()}>続きから</div>
             <div className='menu_button' onClick={() => window.location.href = "/new_game"}>はじめから</div>
             <div className='menu_button' onClick={() => window.location.href = "/gallery"}>ギャラリー</div>
-            <div className='menu_button' onClick={() => window.location.href = "/option"}>オプション</div>
+            <div className='menu_button' onClick={() => setShowOption(true)}>オプション</div>
+
+
+            {showOption && (
+              <OptioncomIndex setShowOption={setShowOption} />
+            )}
+
           </div>
 
         </div>
 
-
-
       </div>
-
 
     </main>
   );

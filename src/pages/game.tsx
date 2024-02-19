@@ -11,6 +11,7 @@ import Textcom from "../components/textcom";
 import Selectcom from "../components/selectcom";
 import Loadcom from "../components/loadcom";
 import Savecom from "../components/savecom";
+import Optioncom from "../components/optioncom";
 
 import Dialogue from "../components/dialogue";
 import Manager from "../components/manager";
@@ -27,6 +28,8 @@ const GamePage: React.FC = () => {
   const [showName, setShowName] = useState(true); // 名前表示・非表示
   const [showLoad, setShowLoad] = useState(false); // ロード画面表示・非表示
   const [showSave, setShowSave] = useState(false); // セーブ画面表示・非表示
+  const [showConf, setShowConf] = useState(false); // タイトルに戻る確認画面表示・非表示
+  const [showOption, setShowOption] = useState(false); // オプション画面表示・非表示
 
   const [choiceInd, setChoiceInd] = useState(-1); // 選択されたインデックス
 
@@ -41,6 +44,11 @@ const GamePage: React.FC = () => {
   const [charaToShow, setCharaToShow] = useState([emp]);
   const [backToShow, setBackToShow] = useState(emp);
   const [selectShow, setSelectShow] = useState([""]);
+
+  const [fontSize, setFontSize] = useState<number>(17); // 初期フォントサイズを設定
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFontSize(parseInt(event.target.value, 10)); // スライダーの値でフォントサイズを変更
+  };
 
 
   // コンポーネントがマウントされた時にローカルストレージからデータを読み込む
@@ -117,6 +125,15 @@ const GamePage: React.FC = () => {
       }
 
     }
+
+    // ローカルストレージからオプションのデータを取得
+    const optionJsonString = localStorage.getItem('optionData');
+    if(optionJsonString){
+      // 文字列を JSON オブジェクトに変換
+      const optionJson = JSON.parse(optionJsonString);
+      setFontSize(parseInt(optionJson.fontSize, 10)); // フォントサイズをセット
+    }
+
   }, []); // 一度だけ実行されるため、依存リストに空の配列を渡す
 
 
@@ -213,7 +230,7 @@ const GamePage: React.FC = () => {
         <div className="center-text">
 
           {showText && (
-            <p onClick={textClick} className='main-text'>
+            <p onClick={textClick} className='main-text' style={{ fontSize: `${fontSize * 0.1}vw` }}>
               {myManager.getText()}
             </p>
           )}
@@ -230,13 +247,9 @@ const GamePage: React.FC = () => {
                 <br />
                 <div className='menu_button' onClick={() => loadCliked()}>ロード</div>
                 <br />
-                <Link href="/option">
-                  <div className='menu_button'>オプション</div>
-                </Link>
+                <div className='menu_button' onClick={() => { setShowOption(true), setShowConfirmation(false) }}>オプション</div>
                 <br />
-                <Link href="/..">
-                  <div className='menu_button'>タイトルに戻る</div>
-                </Link>
+                <div className='menu_button' onClick={() => { setShowConf(true), setShowConfirmation(false) }} >タイトルに戻る</div>
                 <br />
                 <div className='menu_button' onClick={() => setShowConfirmation(false)}>メニューを閉じる</div>
 
@@ -254,6 +267,22 @@ const GamePage: React.FC = () => {
             <Loadcom saveData={saveData} setShowLoad={setShowLoad} Load={setMyManager} />
           )}
 
+          {showConf && (
+            <div className='load'>
+              <div className="confirmation_modal">
+                <p>タイトルに戻りますか？</p>
+                <Link href="/..">
+                  <div className='yes_button'>はい</div>
+                </Link>
+                <div className='no_button' onClick={() => setShowConf(false)}>いいえ</div>
+              </div>
+            </div>
+          )}
+
+          {showOption && (
+            <Optioncom fontSize={fontSize} handleChange={handleChange} setShowOption={setShowOption} />
+          )}
+
 
 
 
@@ -266,7 +295,7 @@ const GamePage: React.FC = () => {
 
 
 
-    </main>
+    </main >
   );
 };
 
