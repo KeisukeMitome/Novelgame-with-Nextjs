@@ -9,13 +9,11 @@ import yo from "/public/yo.png";
 export default function Home() {
   return (
     <main>
-      <h1 className='h1_1'>ぎゃらりー🖼</h1>
+      <h1 className='h1_1'>ギャラリー</h1>
 
-      <Image className='image_gallery' src={hazama} alt="hazama" width={16*20} height={9*20} />
-      <Image className='image_gallery' src={doughnut} alt="hazama" width={16*20} height={9*20} />
-      <Image className='image_gallery' src={yo} alt="hazama" width={16*20} height={9*20} />
+      <p>Coming soon...</p>
 
-      <Link className='menu_button' href="/..">たいとるにもどる</Link>
+      <Link className='menu_button' href="/..">タイトルに戻る</Link>
     </main>
   );
 }

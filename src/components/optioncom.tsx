@@ -4,8 +4,10 @@ import { useEffect } from 'react';
 
 export interface optionProps {
     fontSize: number;
+    textSpeed: number;
     // フォントサイズのセッター
-    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    fontHandleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    speedHandleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     setShowOption: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -15,7 +17,8 @@ const Optioncom: React.FC<optionProps> = (props) => {
 
         // jsonに書き出したい
         const jsonOptioinData = {
-            fontSize: props.fontSize
+            fontSize: props.fontSize,
+            textSpeed: props.textSpeed
         };
 
         // JSON オブジェクトを文字列に変換
@@ -36,11 +39,24 @@ const Optioncom: React.FC<optionProps> = (props) => {
                 min="14"
                 max="22"
                 value={props.fontSize}
-                onChange={props.handleChange}
+                onChange={props.fontHandleChange}
             />
             <label style={{ fontSize: `2.2vw` }}>大</label>
             <br />
             <p style={{ fontSize: `${props.fontSize * 0.1}vw` }} className='main-text-sample'>文字の大きさサンプル</p>
+
+            <br />
+            <label>文字の速さ　遅</label>
+            <input
+                type="range"
+                min="1"
+                max="200"
+                value={props.textSpeed}
+                onChange={props.speedHandleChange}
+            />
+            <label>速</label>
+            <br />
+
             <div className='menu_button' onClick={() => {props.setShowOption(false), close_clicked()}}>閉じる</div>
         </div>
     </div>

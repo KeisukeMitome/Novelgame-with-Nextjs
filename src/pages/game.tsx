@@ -46,8 +46,13 @@ const GamePage: React.FC = () => {
   const [selectShow, setSelectShow] = useState([""]);
 
   const [fontSize, setFontSize] = useState<number>(17); // 初期フォントサイズを設定
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const fontHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFontSize(parseInt(event.target.value, 10)); // スライダーの値でフォントサイズを変更
+  };
+
+  const [textSpeed, setTextSpeed] = useState<number>(150); // 初期フォントサイズを設定
+  const speedHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTextSpeed(parseInt(event.target.value, 10)); // スライダーの値でテキストの表示速度を変更
   };
 
 
@@ -132,6 +137,7 @@ const GamePage: React.FC = () => {
       // 文字列を JSON オブジェクトに変換
       const optionJson = JSON.parse(optionJsonString);
       setFontSize(parseInt(optionJson.fontSize, 10)); // フォントサイズをセット
+      setTextSpeed(parseInt(optionJson.textSpeed, 10)); // テキストの表示速度をセット
     }
 
   }, []); // 一度だけ実行されるため、依存リストに空の配列を渡す
@@ -208,6 +214,7 @@ const GamePage: React.FC = () => {
   }, [myManager, myManager.getName()]);
 
 
+
   return (
     <main>
 
@@ -230,15 +237,17 @@ const GamePage: React.FC = () => {
         <div className="center-text">
 
           {showText && (
-            <p onClick={()=>textClick()} className='main-text' style={{ fontSize: `${fontSize * 0.1}vw` }}>
-              {myManager.getText()}
-            </p>
+            <div onClick={()=>textClick()} className='main-text' style={{ fontSize: `${fontSize * 0.1}vw` }}>
+              {/* {myManager.getText()} */}
+              <Textcom text={myManager.getText()} isSelect={myManager.isSelect()} textSpeed={201-textSpeed} />
+            </div>
           )}
+
 
 
           <div className='menu'>
             <div className="select_button" onClick={handleConfirmationButtonClick}>
-              メニュー
+              ≡メニュー
             </div>
 
             {showConfirmation && (
@@ -280,7 +289,12 @@ const GamePage: React.FC = () => {
           )}
 
           {showOption && (
-            <Optioncom fontSize={fontSize} handleChange={handleChange} setShowOption={setShowOption} />
+            <Optioncom 
+            fontSize={fontSize} 
+            textSpeed={textSpeed} 
+            fontHandleChange={fontHandleChange}
+            speedHandleChange={speedHandleChange} 
+            setShowOption={setShowOption} />
           )}
 
 
