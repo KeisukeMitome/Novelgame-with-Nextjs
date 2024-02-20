@@ -53,22 +53,59 @@ class Manager {
 
         // セリフ、喋るキャラ、キャラ[]、キャラの指数(誰もしゃべってない時と自分の時は-1)、背景、ルート
         this.Dialogues = [
+            new Dialogue("......。", "", [emp], -1, black),
+            new Dialogue("「もう朝か。」", name, [emp], -1, myroom_day),
+            new Dialogue("おれは虚ろな視界で時計を見る。", "", [emp], -1, myroom_day),
+            new Dialogue("「げっ、もうこんな時間！？」", name, [emp], -1, myroom_day),
+            new Dialogue("「い、急げ！！」", name, [emp], -1, myroom_day),
+            new Dialogue("おれは慌てて部屋を飛び出す。", "", [emp], -1, myroom_day),
+            new Dialogue("「いってきまーす！」", name, [emp], -1, entrance_day),
+            new Dialogue("「この時間なら走れば間に合う！」", name, [emp], -1, house_day),
+            new Dialogue("「ぜぇ、ぜぇ」", name, [emp], -1, road_day),
+            new Dialogue("正直言ってもう限界が近い。", "", [emp], -1, road_day),
+            new Dialogue("こんな思いはもう二度とごめんだと、この間のテストで学んだばかりじゃないか！", "", [emp], -1, road_day),
+            new Dialogue("「くそっ、なんでこんな時に限って赤信号なんだよ！」", name, [emp], -1, crossroad_day),
+            new Dialogue("心にも余裕がなくなってきた。", "", [emp], -1, crossroad_day),
+            new Dialogue("「ギリギリセーフ！」", name, [emp], -1, schoolentrance_day),
+            new Dialogue("おれは今日も朝の悪魔に打ち勝ったんだ！", "", [emp], -1, schoolentrance_day),
+            new Dialogue("教室について一息ついた。", "", [emp], -1, class_day),
+            new Dialogue("「おはよ、"+name+"！」", "???", [emp], -1, class_day),
+            new Dialogue("後ろから声が聞こえてきた。", "", [emp], -1, class_day),
+            new Dialogue("振り向くと、見るとなんだか安心する姿があった。", "", [emp], -1, class_day),
+            new Dialogue("「アナ、おはよー」", name, [chara1_normal], -1, class_day),
+            new Dialogue("彼女の名前は姫野アナ。彼女はおれの信頼している友人で、同じクラスになってから話すことが多い。", "", [chara1_normal], -1, class_day),
+            new Dialogue("「今日は寝坊？」", "アナ", [chara1_normal], 0, class_day),
+            new Dialogue("「いいや、計算通りの登校だよ。」", name, [chara1_normal], -1, class_day),
+            new Dialogue("「ふーん？」", "アナ", [chara1_normal], 0, class_day),
+            new Dialogue("「なんだよ、疑ってんのか？」", name, [chara1_normal], -1, class_day),
+            new Dialogue("「おれは自分の足と体力を信じたまでだ！」", name, [chara1_normal], -1, class_day),
+            new Dialogue("「ほんとはママに起こしてもらえなかっただけでしょ？」", "アナ", [chara1_evilsmile], 0, class_day),
+            new Dialogue("「ぅ、ばれた、」", name, [chara1_evilsmile], -1, class_day),
+            new Dialogue("この娘の前では嘘は無意味らしい。", "", [chara1_smile], -1, class_day),
+            new Dialogue("《チャイム》", "", [chara1_surprised], -1, class_day),
+            new Dialogue("「皆さんおはようございます。これからホームルームをはじめます。」", "先生", [emp], 0, class_day),
+            new Dialogue("こうして教室でホームルームを聞けるだけで頑張った甲斐があったと思える。", "", [emp], 0, class_day),
+            new Dialogue("「今日の1時間目の総合は自主勉の時間だ。来週のテストに向けてしっかり勉強するように。」", "", [emp], 0, class_day), 
+            new Dialogue("自主勉だなんて、、、最高じゃないか！", "", [emp], 0, class_day), 
+            new Dialogue("1時間好きなことをできる自由時間だ。", "", [emp], 0, class_day), 
+            new Dialogue("「手始めにゲームでも、、、」", "", [emp], 0, class_day), 
             new Dialogue("「もう来週テストだなんて早いねー！」", "アナ", [chara1_normal], 0, class_day),
             new Dialogue("「" + name + "は昨日どれくらい勉強した？」", "アナ", [chara1_normal], 0, class_day),
+            new Dialogue("どうやらゲームをできる状況ではなさそうだ。", "", [chara1_normal], -1, class_day), 
             new Dialogue("「ええと、昨日の勉強時間は、」", name, [chara1_normal], -1, class_day),
             new Dialogue("「ええと、昨日の勉強時間は、」", name, [chara1_normal], -1, class_day)
         ];
 
         this.Selection_commom_1 = [
-            "4時間14分",
-            "33時間7分",
+            "4時間",
+            "30時間！！",
             "趣味に没頭してた"
         ];
 
         this.Dialogues_commom_1c = [
             // 選択肢1の分岐先
             [
-                new Dialogue("「4時間14分勉強したよ」", name, [chara1_normal], -1, class_day),
+                new Dialogue("「4時間くらい勉強したよ」", name, [chara1_normal], -1, class_day),
                 new Dialogue("「え、そんなに勉強したの！？」", "アナ", [chara1_surprised], 0, class_day),
                 new Dialogue("「このままじゃ置いてかれちゃう、、、」", "アナ", [chara1_sad], 0, class_day),
                 new Dialogue("「ねえ、この後わからないとこあったら聞いてもいい？」", "アナ", [chara1_normal], 0, class_day),
@@ -76,7 +113,7 @@ class Manager {
             ],
             // 選択肢2の分岐先
             [
-                new Dialogue("「33時間7分！！」", name, [chara1_normal], -1, class_day),
+                new Dialogue("「30時間！！」", name, [chara1_normal], -1, class_day),
                 new Dialogue("「....？？？」", "アナ", [chara1_smile], 0, class_day),
                 new Dialogue("「.........。」", name, [chara1_smile], -1, class_day),
                 new Dialogue("「ちょっと何言ってるかわからない」", "アナ", [chara1_smile], 0, class_day),
@@ -135,12 +172,12 @@ class Manager {
             new Dialogue("「せっかくの機会だし交換しとこうよ」", "メイ", [chara1_normal, chara2_normal], 1, class_day),
             new Dialogue("「そうだね。これからもよろしくな」", name, [chara1_normal, chara2_normal], -1, class_day),
             new Dialogue("「はーい」", "メイ", [chara1_normal, chara2_smile], 1, class_day),
-            new Dialogue("『チャイム』", "", [chara1_surprised, chara2_normal], -1, class_day),
+            new Dialogue("《チャイム》", "", [chara1_surprised, chara2_normal], -1, class_day),
             new Dialogue("「丁度1時間目終わったし解散しよっか」", "アナ", [chara1_normal, chara2_normal], 0, class_day),
             new Dialogue("「改めてありがとう細川さん」", name, [chara1_normal, chara2_normal], -1, class_day),
             new Dialogue("「いつでも聞いてねー」", "メイ", [chara1_normal, chara2_smile], 1, class_day),
             new Dialogue("この後の授業は全部退屈そうだな。数学Aに現代文に世界史か。帰りたい、、、。", "", [], -1, class_day),
-            new Dialogue("「6 HOURS LATER」", "", [], -1, black),
+            new Dialogue("6時間後", "", [], -1, black),
             new Dialogue(".........。", "", [], -1, class_late_afternoon),
             new Dialogue("「今日の授業はもう終わりか。」", name, [], -1, class_late_afternoon),
             new Dialogue("授業を受ける前はあんなに嫌だったのに、いざ終えてみるとそこまで苦痛ではない上に、意外にためになることも学べる。", "", [], -1, class_late_afternoon),
