@@ -19,13 +19,17 @@
     cursor: pointer;
     border-radius: 20px;
     width: 270px;
-    box-shadow: 0px 4px 0px rgb(20, 127, 90); /* 影の効果 */
+    box-shadow: 0px 4px 0px rgb(20, 127, 90);
+    /* 影の効果 */
 }
+
 .menu_button:hover {
     /* background-color: #51eec7; */
-    background: linear-gradient( rgb(63, 232, 209) 0%, rgb(60, 225, 203)100%);
-    box-shadow: 0px 2px 0px rgb(20, 127, 90); /* 影の効果 */
-    transform: translateY(2px); /* 下に 10px 移動 */
+    background: linear-gradient(rgb(63, 232, 209) 0%, rgb(60, 225, 203)100%);
+    box-shadow: 0px 2px 0px rgb(20, 127, 90);
+    /* 影の効果 */
+    transform: translateY(2px);
+    /* 下に 10px 移動 */
     z-index: -1;
 }
 
@@ -49,13 +53,17 @@
     justify-content: center;
     /* 水平方向に中央揃え */
     width: 140px;
-    box-shadow: 0px 4px 0px rgb(20, 127, 90); /* 影の効果 */
+    box-shadow: 0px 4px 0px rgb(20, 127, 90);
+    /* 影の効果 */
 }
+
 .select_button:hover {
     /* background-color: #51eec7; */
-    background: linear-gradient( rgb(63, 232, 209) 0%, rgb(60, 225, 203)100%);
-    box-shadow: 0px 2px 0px rgb(20, 127, 90); /* 影の効果 */
-    transform: translateY(2px); /* 下に 10px 移動 */
+    background: linear-gradient(rgb(63, 232, 209) 0%, rgb(60, 225, 203)100%);
+    box-shadow: 0px 2px 0px rgb(20, 127, 90);
+    /* 影の効果 */
+    transform: translateY(2px);
+    /* 下に 10px 移動 */
 }
 
 .yes_button {
@@ -70,12 +78,16 @@
     cursor: pointer;
     border-radius: 25px;
     width: 120px;
-    box-shadow: 0px 4px 0px rgb(30, 161, 78); /* 影の効果 */
+    box-shadow: 0px 4px 0px rgb(30, 161, 78);
+    /* 影の効果 */
 }
+
 .yes_button:hover {
     background: linear-gradient(rgb(134, 241, 122) 0%, rgb(134, 241, 122)100%);
-    box-shadow: 0px 2px 0px rgb(30, 161, 78); /* 影の効果 */
-    transform: translateY(2px); /* 下に 10px 移動 */
+    box-shadow: 0px 2px 0px rgb(30, 161, 78);
+    /* 影の効果 */
+    transform: translateY(2px);
+    /* 下に 10px 移動 */
 }
 
 .no_button {
@@ -90,49 +102,62 @@
     cursor: pointer;
     border-radius: 25px;
     width: 120px;
-    box-shadow: 0px 4px 0px rgb(105, 9, 9); /* 影の効果 */
+    box-shadow: 0px 4px 0px rgb(105, 9, 9);
+    /* 影の効果 */
 }
+
 .no_button:hover {
     background: linear-gradient(rgb(255, 152, 152) 0%, rgb(255, 152, 152)100%);
-    box-shadow: 0px 2px 0px rgb(105, 9, 9); /* 影の効果 */
-    transform: translateY(2px); /* 下に 10px 移動 */
+    box-shadow: 0px 2px 0px rgb(105, 9, 9);
+    /* 影の効果 */
+    transform: translateY(2px);
+    /* 下に 10px 移動 */
 }
 
 .file_button {
     /* background-color: #4697da; */
-    background: linear-gradient( rgb(111, 218, 230) 0%, rgb(60, 139, 208)120%);
+    background: linear-gradient(rgb(111, 218, 230) 0%, rgb(60, 139, 208)120%);
     color: white;
     padding: 7px 7px;
     text-align: left;
     text-decoration: none;
-    line-height: 1.2; /* 行の高さを1.5倍に設定 */
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5); /* 影の効果 */
+    line-height: 1.2;
+    /* 行の高さを1.5倍に設定 */
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);
+    /* 影の効果 */
     display: inline-block;
     margin: 9px 0px;
     cursor: pointer;
     border-radius: 15px;
     width: 400px;
 }
+
 .file_button:hover {
     /* background-color: #b3fff4; */
-    background: linear-gradient( rgb(140, 240, 251) 0%, rgb(80, 164, 237)120%);
+    background: linear-gradient(rgb(140, 240, 251) 0%, rgb(80, 164, 237)120%);
 }
+
 .slot_number {
     font-size: 15px;
 }
+
 .progress_number {
     font-size: 22px;
     text-align: center;
 }
+
 .pre_text {
     font-size: 12px;
     padding: 12px 2px;
-    border-bottom-left-radius: 12px; /* カードの左上の角を丸める */
-    border-bottom-right-radius: 12px; /* カードの右上の角を丸める */
+    border-bottom-left-radius: 12px;
+    /* カードの左上の角を丸める */
+    border-bottom-right-radius: 12px;
+    /* カードの右上の角を丸める */
     background-color: #ffffff;
     color: #4697da;
     text-align: center;
 }
+
 /* セーブされた日時 */
 .savedDate {
     font-size: 8px;
@@ -216,9 +241,12 @@
         /* ウィンドウが縦長の場合に適用するスタイルをここに記述 */
         position: absolute;
         /* 絶対位置指定 */
-        top: 50%; /* 上端を画面の中央に配置 */
-        left: 50%; /* 左端を画面の中央に配置 */
-        transform: translate(-50%, -50%); /* 中央揃え */
+        top: 50%;
+        /* 上端を画面の中央に配置 */
+        left: 50%;
+        /* 左端を画面の中央に配置 */
+        transform: translate(-50%, -50%);
+        /* 中央揃え */
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -288,6 +316,8 @@
     /* ボタンの横幅と縦幅を指定 */
     width: 80vw;
     height: 15vh;
+
+    position: relative;
 }
 
 .main-text-sample {
@@ -314,6 +344,39 @@
     height: 10vh;
 }
 
+/* 上下するアニメーション */
+@keyframes upDown {
+    0% {
+        transform: translateY(0);
+        /* 初期位置 */
+    }
+
+    50% {
+        transform: translateY(-10px);
+        /* 上方向に移動 */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* 初期位置に戻る */
+    }
+}
+
+.up-down-animation {
+    display: inline-block;
+    animation: upDown 1s infinite;
+    /* upDownアニメーションを2秒ごとに繰り返し実行 */
+}
+
+.up-down-animation2 {
+    position: absolute;
+    font-size: 1.3vw;
+    top: 10px;
+    right: 10px;
+    animation: upDown 1s infinite;
+}
+
+
 /* メニュー右上設置 */
 .menu {
     position: fixed;
@@ -325,7 +388,8 @@
 /* メニュー右上設置 */
 .load {
     position: fixed;
-    transform: translate(-50%, -50%); /* 中央揃え */
+    transform: translate(-50%, -50%);
+    /* 中央揃え */
     top: 50%;
     left: 50%;
     /* 他のスタイルも必要に応じて追加 */
@@ -407,7 +471,8 @@
     font-size: 24px;
     margin: 4px 2px;
     border-radius: 25px;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5); /* 影の効果 */
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);
+    /* 影の効果 */
 }
 
 
@@ -416,7 +481,8 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* 中央揃え */
+    transform: translate(-50%, -50%);
+    /* 中央揃え */
     display: flex;
     flex-direction: column;
     z-index: 2;
@@ -434,10 +500,14 @@
     font-size: 2vw;
     border: 3px solid rgb(219, 255, 244);
     cursor: pointer;
-    padding: 10px; /* 選択肢と枠線の間に余白を設定できます */
-    margin: 10px; /* 選択肢の間に余白を設定できます */
-    display: inline-block; /* 選択肢が横に並ぶようにします */
+    padding: 10px;
+    /* 選択肢と枠線の間に余白を設定できます */
+    margin: 10px;
+    /* 選択肢の間に余白を設定できます */
+    display: inline-block;
+    /* 選択肢が横に並ぶようにします */
 }
+
 /* 選択肢（カーソル合わせたとき） */
 .choice-container:hover {
     background-color: rgba(232, 255, 252, 0.9);

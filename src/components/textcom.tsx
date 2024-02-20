@@ -31,6 +31,8 @@ const Textcom: React.FC<textProps> = (props) => {
     if (!props.isSelect && currentIndex < props.text.length) {
         return <div>
             {displayedText}
+            {/* <span className="up-down-animation">▼</span> */}
+            <div className="up-down-animation2">▼</div>
         </div>
     }
     else {
