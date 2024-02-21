@@ -30,6 +30,7 @@ const GamePage: React.FC = () => {
   const [showSave, setShowSave] = useState(false); // セーブ画面表示・非表示
   const [showConf, setShowConf] = useState(false); // タイトルに戻る確認画面表示・非表示
   const [showOption, setShowOption] = useState(false); // オプション画面表示・非表示
+  const [showCautionGame, setShowCautionGame] = useState(false); // 最初の注意画面表示・非表示
 
   const [choiceInd, setChoiceInd] = useState(-1); // 選択されたインデックス
 
@@ -54,6 +55,20 @@ const GamePage: React.FC = () => {
   const speedHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTextSpeed(parseInt(event.target.value, 10)); // スライダーの値でテキストの表示速度を変更
   };
+
+  const cautionGameClicked = () => {
+    setShowCautionGame(false);
+
+    // jsonに書き出したい
+    const jsonCautionGameData = {
+      CautionGame: false,
+    };
+
+    // JSON オブジェクトを文字列に変換
+    const jsonString = JSON.stringify(jsonCautionGameData);
+    // ローカルストレージに保存
+    localStorage.setItem('cautionGameData', jsonString);
+  }
 
 
   // コンポーネントがマウントされた時にローカルストレージからデータを読み込む
@@ -140,6 +155,17 @@ const GamePage: React.FC = () => {
       setTextSpeed(parseInt(optionJson.textSpeed, 10)); // テキストの表示速度をセット
     }
 
+    // ローカルストレージから注意データを取得
+    const cautionGameJsonString = localStorage.getItem('cautionGameData');
+    if (cautionGameJsonString) {
+      // 文字列を JSON オブジェクトに変換
+      const cautionGameData = JSON.parse(cautionGameJsonString);
+      setShowCautionGame(cautionGameData.CautionGame);
+    }
+    else {
+      setShowCautionGame(true);
+    }
+
   }, []); // 一度だけ実行されるため、依存リストに空の配列を渡す
 
 
@@ -185,6 +211,9 @@ const GamePage: React.FC = () => {
     // 選択フェーズが来たときに選択肢を表示する
     setShowSelection(myManager.isSelect());
     setShowName(myManager.isName());
+
+    // 注意文を消す
+    if(showCautionGame) cautionGameClicked();
   };
 
 
@@ -297,11 +326,11 @@ const GamePage: React.FC = () => {
               setShowOption={setShowOption} />
           )}
 
-
-          <div className='balloon_con'>
-            <div className='balloon'>会話を進めるにはテキストボックスをクリックしてください</div>
-          </div>
-
+          {showCautionGame && (
+            <div className='balloon_con'>
+              <div className='balloon'>会話を進めるにはテキストボックスをクリックしてください</div>
+            </div>
+          )}
 
 
 

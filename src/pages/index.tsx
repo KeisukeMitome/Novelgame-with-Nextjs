@@ -14,10 +14,25 @@ const Home: React.FC = () => {
   const [saveData, setSaveData] = useState<Manager[]>(new Array(3).fill(null).map(() => new Manager("")));
   const [showLoad, setShowLoad] = useState(false); // ロード画面表示・非表示
   const [showOption, setShowOption] = useState(false); // オプション画面表示・非表示
+  const [showCautionIndex, setShowCautionIndex] = useState(false); // 最初の注意画面表示・非表示
 
   const loadButtonCliked = () => {
     setShowLoad(true);
   };
+
+  const cautionIndexClicked = () => {
+    setShowCautionIndex(false);
+
+    // jsonに書き出したい
+    const jsonCautionIndexData = {
+      CautionIndex: false,
+    };
+
+    // JSON オブジェクトを文字列に変換
+    const jsonString = JSON.stringify(jsonCautionIndexData);
+    // ローカルストレージに保存
+    localStorage.setItem('cautionIndexData', jsonString);
+  }
 
   // コンポーネントがマウントされた時にローカルストレージからデータを読み込む
   useEffect(() => {
@@ -62,9 +77,20 @@ const Home: React.FC = () => {
       saveData[2].setSavedDateString(savedData.Date_2);
       setSaveData(saveData);
     }
+
+    // ローカルストレージから注意データを取得
+    const cautionIndexJsonString = localStorage.getItem('cautionIndexData');
+    if (cautionIndexJsonString) {
+      // 文字列を JSON オブジェクトに変換
+      const cautionIndexData = JSON.parse(cautionIndexJsonString);
+      setShowCautionIndex(cautionIndexData.CautionIndex);
+    }
+    else {
+      setShowCautionIndex(true);
+    }
+
+
   }, []); // 一度だけ実行されるため、依存リストに空の配列を渡す
-
-
 
 
   return (
@@ -136,6 +162,15 @@ const Home: React.FC = () => {
 
             {showOption && (
               <OptioncomIndex setShowOption={setShowOption} />
+            )}
+
+            {showCautionIndex && (
+              <div className='load'>
+                <div className="confirmation_modal">
+                  <p style={{ fontSize: "22px" }}>このウェブサイトでは全画面表示を推奨しております</p>
+                  <div className='menu_button' onClick={() => cautionIndexClicked()}>閉じる</div>
+                </div>
+              </div>
             )}
 
           </div>

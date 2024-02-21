@@ -63,7 +63,7 @@ class Manager {
             new Dialogue("「この時間なら走れば間に合う！」", name, [emp], -1, house_day),
             new Dialogue("「ぜぇ、ぜぇ」", name, [emp], -1, road_day),
             new Dialogue("正直言ってもう限界が近い。", "", [emp], -1, road_day),
-            new Dialogue("こんな思いはもう二度とごめんだと、この間のテストで学んだばかりじゃないか！", "", [emp], -1, road_day),
+            new Dialogue("こんな思いはもう二度とごめんだと、この間のテストの日に学んだばかりじゃないか！", "", [emp], -1, road_day),
             new Dialogue("「くそっ、なんでこんな時に限って赤信号なんだよ！」", name, [emp], -1, crossroad_day),
             new Dialogue("心にも余裕がなくなってきた。", "", [emp], -1, crossroad_day),
             new Dialogue("「ギリギリセーフ！」", name, [emp], -1, schoolentrance_day),
