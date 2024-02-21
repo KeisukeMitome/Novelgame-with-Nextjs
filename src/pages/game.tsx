@@ -264,6 +264,7 @@ const GamePage: React.FC = () => {
 
 
         <div className="center-text">
+          
 
           {showText && (
             <div onClick={() => textClick()} className='main-text' style={{ fontSize: `${fontSize * 0.1}vw` }}>

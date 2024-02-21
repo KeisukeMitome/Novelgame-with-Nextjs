@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Loadcom from "../components/loadcom";
 import OptioncomIndex from "@/components/optioncom_index";
+import Image, { StaticImageData } from "next/image"
 
 import Manager from "../components/manager";
 import Dialogue from "../components/dialogue";
 
+import title_back from '/public/back/title.png';
 
 
 const Home: React.FC = () => {
@@ -99,83 +101,82 @@ const Home: React.FC = () => {
       <div className='overlay-base'>
 
 
-        <div className='image_back_title'>
+        <Image className="image_back" src={title_back} alt="back Image" />
 
-          <div className="center-text">
+        <div className="center-text">
 
 
-            {showLoad && (
-              <div className='load'>
-                <div className="confirmation_modal">
-                  <p>ロード</p>
+          {showLoad && (
+            <div className='load'>
+              <div className="confirmation_modal">
+                <p>ロード</p>
 
-                  {saveData[0].getMyName() !== "" && (
-                    <>
-                      <Link href={`/game?loadSlot=${encodeURIComponent(0)}`}>
-                        <div className="file_button">
-                          <div className="slot_number">1{saveData[0].getMyName() !== "" ? '. ' + saveData[0].getMyName() : ''}</div>
-                          <div className="savedDate">{saveData[0].getMyName() !== "" ? saveData[0].getSavedDate() : ''}</div>
-                          <div className="progress_number">進行度: {saveData[0].getLevel()}</div>
-                          <div className="pre_text">{saveData[0] && saveData[0].getMyName() !== "" ? saveData[0].getName() + saveData[0].getText() : '空のスロット'}</div>
-                        </div>
-                      </Link>
-                    </>
-                  )}
+                {saveData[0].getMyName() !== "" && (
+                  <>
+                    <Link href={`/game?loadSlot=${encodeURIComponent(0)}`}>
+                      <div className="file_button">
+                        <div className="slot_number">1{saveData[0].getMyName() !== "" ? '. ' + saveData[0].getMyName() : ''}</div>
+                        <div className="savedDate">{saveData[0].getMyName() !== "" ? saveData[0].getSavedDate() : ''}</div>
+                        <div className="progress_number">進行度: {saveData[0].getLevel()}</div>
+                        <div className="pre_text">{saveData[0] && saveData[0].getMyName() !== "" ? saveData[0].getName() + saveData[0].getText() : '空のスロット'}</div>
+                      </div>
+                    </Link>
+                  </>
+                )}
 
-                  {saveData[1].getMyName() !== "" && (
-                    <>
-                      <Link href={`/game?loadSlot=${encodeURIComponent(1)}`}>
-                        <div className="file_button">
-                          <div className="slot_number">2{saveData[1].getMyName() !== "" ? '. ' + saveData[1].getMyName() : ''}</div>
-                          <div className="savedDate">{saveData[1].getMyName() !== "" ? saveData[1].getSavedDate() : ''}</div>
-                          <div className="progress_number">進行度: {saveData[1].getLevel()}</div>
-                          <div className="pre_text">{saveData[1] && saveData[1].getMyName() !== "" ? saveData[1].getName() + saveData[1].getText() : '空のスロット'}</div>
-                        </div>
-                      </Link>
-                    </>
-                  )}
+                {saveData[1].getMyName() !== "" && (
+                  <>
+                    <Link href={`/game?loadSlot=${encodeURIComponent(1)}`}>
+                      <div className="file_button">
+                        <div className="slot_number">2{saveData[1].getMyName() !== "" ? '. ' + saveData[1].getMyName() : ''}</div>
+                        <div className="savedDate">{saveData[1].getMyName() !== "" ? saveData[1].getSavedDate() : ''}</div>
+                        <div className="progress_number">進行度: {saveData[1].getLevel()}</div>
+                        <div className="pre_text">{saveData[1] && saveData[1].getMyName() !== "" ? saveData[1].getName() + saveData[1].getText() : '空のスロット'}</div>
+                      </div>
+                    </Link>
+                  </>
+                )}
 
-                  {saveData[2].getMyName() !== "" && (
-                    <>
-                      <Link href={`/game?loadSlot=${encodeURIComponent(2)}`}>
-                        <div className="file_button">
-                          <div className="slot_number">3{saveData[2].getMyName() !== "" ? '. ' + saveData[2].getMyName() : ''}</div>
-                          <div className="savedDate">{saveData[2].getMyName() !== "" ? saveData[2].getSavedDate() : ''}</div>
-                          <div className="progress_number">進行度: {saveData[2].getLevel()}</div>
-                          <div className="pre_text">{saveData[2] && saveData[2].getMyName() !== "" ? saveData[2].getName() + saveData[2].getText() : '空のスロット'}</div>
-                        </div>
-                      </Link>
-                    </>
-                  )}
+                {saveData[2].getMyName() !== "" && (
+                  <>
+                    <Link href={`/game?loadSlot=${encodeURIComponent(2)}`}>
+                      <div className="file_button">
+                        <div className="slot_number">3{saveData[2].getMyName() !== "" ? '. ' + saveData[2].getMyName() : ''}</div>
+                        <div className="savedDate">{saveData[2].getMyName() !== "" ? saveData[2].getSavedDate() : ''}</div>
+                        <div className="progress_number">進行度: {saveData[2].getLevel()}</div>
+                        <div className="pre_text">{saveData[2] && saveData[2].getMyName() !== "" ? saveData[2].getName() + saveData[2].getText() : '空のスロット'}</div>
+                      </div>
+                    </Link>
+                  </>
+                )}
 
-                  <div className='menu_button' onClick={() => setShowLoad(false)}>閉じる</div>
-                </div>
+                <div className='menu_button' onClick={() => setShowLoad(false)}>閉じる</div>
               </div>
-            )}
+            </div>
+          )}
 
-            {/* <Link className='menu_button' href="/file_select">つづける</Link> */}
-            <div className='menu_button' onClick={() => loadButtonCliked()}>続きから</div>
-            <div className='menu_button' onClick={() => window.location.href = "/new_game"}>はじめから</div>
-            <div className='menu_button' onClick={() => window.location.href = "/gallery"}>ギャラリー</div>
-            <div className='menu_button' onClick={() => setShowOption(true)}>オプション</div>
+          {/* <Link className='menu_button' href="/file_select">つづける</Link> */}
+          <div className='menu_button' onClick={() => loadButtonCliked()}>続きから</div>
+          <div className='menu_button' onClick={() => window.location.href = "/new_game"}>はじめから</div>
+          <div className='menu_button' onClick={() => window.location.href = "/gallery"}>ギャラリー</div>
+          <div className='menu_button' onClick={() => setShowOption(true)}>オプション</div>
 
 
-            {showOption && (
-              <OptioncomIndex setShowOption={setShowOption} />
-            )}
+          {showOption && (
+            <OptioncomIndex setShowOption={setShowOption} />
+          )}
 
-            {showCautionIndex && (
-              <div className='load'>
-                <div className="confirmation_modal">
-                  <p style={{ fontSize: "22px" }}>このウェブサイトでは全画面表示を推奨しております</p>
-                  <div className='menu_button' onClick={() => cautionIndexClicked()}>閉じる</div>
-                </div>
+          {showCautionIndex && (
+            <div className='load'>
+              <div className="confirmation_modal">
+                <p style={{ fontSize: "22px" }}>このウェブサイトでは全画面表示を推奨しております</p>
+                <div className='menu_button' onClick={() => cautionIndexClicked()}>閉じる</div>
               </div>
-            )}
-
-          </div>
+            </div>
+          )}
 
         </div>
+
 
       </div>
 
