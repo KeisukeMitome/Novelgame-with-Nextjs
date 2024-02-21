@@ -133,7 +133,7 @@ const GamePage: React.FC = () => {
 
     // ローカルストレージからオプションのデータを取得
     const optionJsonString = localStorage.getItem('optionData');
-    if(optionJsonString){
+    if (optionJsonString) {
       // 文字列を JSON オブジェクトに変換
       const optionJson = JSON.parse(optionJsonString);
       setFontSize(parseInt(optionJson.fontSize, 10)); // フォントサイズをセット
@@ -237,9 +237,9 @@ const GamePage: React.FC = () => {
         <div className="center-text">
 
           {showText && (
-            <div onClick={()=>textClick()} className='main-text' style={{ fontSize: `${fontSize * 0.1}vw` }}>
+            <div onClick={() => textClick()} className='main-text' style={{ fontSize: `${fontSize * 0.1}vw` }}>
               {/* {myManager.getText()} */}
-              <Textcom text={myManager.getText()} isSelect={myManager.isSelect()} textSpeed={201-textSpeed} />
+              <Textcom text={myManager.getText()} isSelect={myManager.isSelect()} textSpeed={201 - textSpeed} />
             </div>
           )}
 
@@ -289,13 +289,19 @@ const GamePage: React.FC = () => {
           )}
 
           {showOption && (
-            <Optioncom 
-            fontSize={fontSize} 
-            textSpeed={textSpeed} 
-            fontHandleChange={fontHandleChange}
-            speedHandleChange={speedHandleChange} 
-            setShowOption={setShowOption} />
+            <Optioncom
+              fontSize={fontSize}
+              textSpeed={textSpeed}
+              fontHandleChange={fontHandleChange}
+              speedHandleChange={speedHandleChange}
+              setShowOption={setShowOption} />
           )}
+
+
+          <div className='balloon_con'>
+            <div className='balloon'>会話を進めるにはテキストボックスをクリックしてください</div>
+          </div>
+
 
 
 

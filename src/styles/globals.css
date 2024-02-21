@@ -511,6 +511,37 @@
 
 
 
+.balloon_con {
+    position: fixed;
+    transform: translate(0%, -150%);
+    /* 中央揃え */
+    /* 他のスタイルも必要に応じて追加 */
+}
+
+/* 吹き出しのスタイル */
+.balloon {
+    background-color: rgba(255, 252, 218, 1);
+    color: rgb(0, 114, 74);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    margin: 4px 2px;
+    border-radius: 25px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 吹き出しの尻尾 */
+.balloon::before {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    border: 10px solid transparent;
+    border-top-color: rgba(255, 252, 218, 1);
+    transform: translateX(-50%);
+}
+
 /* 
 background-color: #4CAF50;: ボタンの背景色を緑色（#4CAF50）に設定します。
 color: white;: ボタンのテキストの色を白色に設定します。
