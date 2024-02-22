@@ -1,7 +1,8 @@
 .h1_1 {
     color: rgb(255, 255, 255);
     font-size: 40px;
-    line-height: 0.55; /* 行の高さを短くする */
+    line-height: 0.55;
+    /* 行の高さを短くする */
     -webkit-text-stroke: 2px rgb(28, 83, 170);
     border-bottom: 15px solid #e8ef67;
     text-decoration: none;
@@ -515,6 +516,37 @@
 }
 
 
+/* フェードイン・アウト */
+.fade-element {
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+
+    background-color: rgb(0, 0, 0);
+    opacity: 0;
+    /* 初期状態を透明に設定 */
+    transition: opacity 2s ease;
+    /* opacityの変化を1秒かけて行う */
+}
+
+.visible {
+    opacity: 1;
+    /* opacityが1の場合、要素が表示されます */
+}
+
+.end-comment {
+    font-size: 3vw;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 
 
 

@@ -31,6 +31,7 @@ const GamePage: React.FC = () => {
   const [showConf, setShowConf] = useState(false); // タイトルに戻る確認画面表示・非表示
   const [showOption, setShowOption] = useState(false); // オプション画面表示・非表示
   const [showCautionGame, setShowCautionGame] = useState(false); // 最初の注意画面表示・非表示
+  const [isVisible, setIsVisible] = useState<boolean>(false); // 画面暗転表示・非表示
 
   const [choiceInd, setChoiceInd] = useState(-1); // 選択されたインデックス
 
@@ -212,8 +213,14 @@ const GamePage: React.FC = () => {
     setShowSelection(myManager.isSelect());
     setShowName(myManager.isName());
 
+
     // 注意文を消す
-    if(showCautionGame) cautionGameClicked();
+    if (showCautionGame) cautionGameClicked();
+  };
+
+  // 画面暗転切り替え
+  const blackSwitch = () => {
+    setIsVisible((prevVisible) => !prevVisible);
   };
 
 
@@ -239,8 +246,17 @@ const GamePage: React.FC = () => {
     setShowName(myManager.isName());
     console.log("名前 :" + name + "  ロードスロット :" + loadSlot);////////////////////////////////////////////////////////////
 
+    // 終わりかどうか
+    if (myManager.getIsEnd()) {
+      setIsVisible(true);
+    }
+    else {
+      setIsVisible(false);
+    }
+
+
     console.log("動作");
-  }, [myManager, myManager.getName()]);
+  }, [myManager, myManager.getName(), myManager.getLevel()]);
 
 
 
@@ -249,14 +265,21 @@ const GamePage: React.FC = () => {
 
       <div className='overlay-base'>
 
+        <Image className="image_back" src={myManager.getBack()} alt="back Image" />
+        <Characom charas={myManager.getCharacters()} talking={myManager.getTalking()} />
+
+
+        <div className={`fade-element ${isVisible ? 'visible' : ''}`}>
+          {isVisible && (
+            <div className="center-text">
+              <div className='end-comment'>DEMOバージョンをプレイしていただきありがとうございました。</div>
+            </div>
+          )}
+        </div>
 
         {showSelection && (
           <Selectcom texts={myManager.getSelections()} setChoiceInd={setChoiceInd} />
         )}
-
-
-        <Image className="image_back" src={myManager.getBack()} alt="back Image" />
-        <Characom charas={myManager.getCharacters()} talking={myManager.getTalking()} />
 
         {showName && (
           <p className='main-text-name'>{myManager.getName()}</p>
@@ -264,7 +287,7 @@ const GamePage: React.FC = () => {
 
 
         <div className="center-text">
-          
+
 
           {showText && (
             <div onClick={() => textClick()} className='main-text' style={{ fontSize: `${fontSize * 0.1}vw` }}>
@@ -272,6 +295,7 @@ const GamePage: React.FC = () => {
               <Textcom text={myManager.getText()} isSelect={myManager.isSelect()} textSpeed={201 - textSpeed} />
             </div>
           )}
+
 
 
 

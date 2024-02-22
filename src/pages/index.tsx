@@ -103,6 +103,7 @@ const Home: React.FC = () => {
 
         <Image className="image_back" src={title_back} alt="back Image" />
 
+    
         <div className="center-text">
 
 
@@ -155,7 +156,7 @@ const Home: React.FC = () => {
             </div>
           )}
 
-          {/* <Link className='menu_button' href="/file_select">つづける</Link> */}
+          
           <div className='menu_button' onClick={() => loadButtonCliked()}>続きから</div>
           <div className='menu_button' onClick={() => window.location.href = "/new_game"}>はじめから</div>
           <div className='menu_button' onClick={() => window.location.href = "/gallery"}>ギャラリー</div>
