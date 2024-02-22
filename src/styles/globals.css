@@ -319,6 +319,10 @@
     margin: 4px 2px;
     border-radius: 15px;
     cursor: pointer;
+    -webkit-user-select: none; /* Chrome、Safari、EdgeなどのWebKitベースのブラウザ */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    user-select: none; /* 標準のユーザー選択 */
 
     /* ボタンの横幅と縦幅を指定 */
     width: 80vw;
