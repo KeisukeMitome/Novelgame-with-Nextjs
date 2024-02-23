@@ -1,40 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Valentine's Delights DEMO
+ブラウザでプレイ可能なノベルゲームのデモ版です。
 
-## Getting Started
+## 作品の概要
+ジャンル：**恋愛シミュレーション**   
+プレイ時間：**10分程**  
+プラットフォーム：**ブラウザ**  
+ハード：**pc推奨**
 
-First, run the development server:
+## スクリーンショット
+<img src="https://github.com/KeisukeMitome/mygame1/assets/107669579/7bad744e-cb15-4f1c-9c6f-681e4567215c" width="250px">
+<img src="https://github.com/KeisukeMitome/mygame1/assets/107669579/049e1735-8cb0-4bff-abcf-4dea18739dab" width="250px">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 機能・操作方法
+画面下部のテキストボックスをクリックして会話を進めます。  
+<img src="https://github.com/KeisukeMitome/mygame1/assets/107669579/50fdade9-08d9-400c-9481-f0beb47bbc20" width="360px">  
+選択肢は任意のものをクリックします  
+<img src="https://github.com/KeisukeMitome/mygame1/assets/107669579/888dbce4-707b-4cd9-bbba-017b5f5ebdbc" width="360px">  
+メニューの『セーブ』からお好きなタイミングでセーブすることができます。また、メニューの『ロード』からセーブデータをロードすることができます。  
+セーブしたデータはcookieに保存されるので、ブラウザを閉じてもセーブデータは削除されません。  
+<img src="https://github.com/KeisukeMitome/mygame1/assets/107669579/8e64054c-53d6-49d2-aaf8-24df3bcf9a0f" width="360px">
+<img src="https://github.com/KeisukeMitome/mygame1/assets/107669579/822151f7-21a7-473e-ab9a-89375b86236d" width="360px">  
+オプションから文字の大きさと文字が表示される速さを調整することができます。  
+<img src="https://github.com/KeisukeMitome/mygame1/assets/107669579/d38d5d34-1d29-42d8-a40f-5c4089908936" width="360px">  
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 利用方法
+以下のリンクからアクセス  
+https://valentinesdelights-ivory.vercel.app/
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 動作環境（確認済みのもの）
+- Microsoft Edge
+- Google Chrome
+- Brave
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## クレジット
+- みんちりえ 様
+  - 担当：背景
+  - https://min-chi.material.jp/
+- MK
+  - 担当：キャラクターデザイン・タイトル画面
+  - https://github.com/KeisukeMitome
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 開発環境
+- Visual Studio Code
+- Windows11
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 使用技術 
+- Next.js
