@@ -26,7 +26,7 @@
 
 ## 利用方法
 以下のリンクからアクセス  
-https://mygame1-ivory.vercel.app/
+https://valentinesdelights-ivory.vercel.app/
 
 ## 動作環境（確認済みのもの）
 - Microsoft Edge
