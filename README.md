@@ -5,7 +5,7 @@
 ジャンル：**恋愛シミュレーション**   
 プレイ時間：**10分程**  
 プラットフォーム：**ブラウザ**  
-ハード：pc推奨
+ハード：**pc推奨**
 
 ## スクリーンショット
 <img src="https://github.com/KeisukeMitome/mygame1/assets/107669579/7bad744e-cb15-4f1c-9c6f-681e4567215c" width="250px">
